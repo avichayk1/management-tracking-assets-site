@@ -1,0 +1,32 @@
+.background-image {
+    background-image: url('./photos/move.jpg'); /* Adjust path as necessary */
+    background-size: cover; /* Cover the entire area of the element */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Optional: Fixed background on scroll */
+    min-height: 100vh; /* Minimum height to cover the full viewport */
+    width: 100%;
+    position: relative; /* Establishes a stacking context for z-index */
+}
+
+.home {
+    font-size: 30px;
+    line-height: 2.1;
+    color: white;
+    padding: 140px;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: Calibri, sans-serif;
+    width: 100%; /* Adjusts the width of the transparent area */
+    max-width: 2500px; /* Optionally set a maximum width */
+    margin: auto; /* Centers the block horizontally */
+    font-weight: bold;
+    align-items: center;
+    text-align: center;
+}
+
+h77 {
+    font-size: 40px;
+    font-family: Calibri, sans-serif;
+    align-items: center;
+    text-align: center;
+    color: darkblue;
+}

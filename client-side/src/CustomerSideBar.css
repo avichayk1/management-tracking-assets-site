@@ -1,0 +1,102 @@
+/* Container holding both the sidebar and the main content */
+.container {
+    display: flex;
+    min-height: 100vh; /* Full viewport height */
+    width: 100%; /* Full viewport width */
+}
+
+.Bell {
+    width: 80px;
+    height: 80px;
+}
+
+/* Main container of the sidebar */
+.CustomerSideBar {
+    width: 250px; /* Fixed width of the sidebar */
+    height: calc(100vh - 60px); /* Adjusted for header height */
+    background-color: #dceef1; /* Light background color */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow on the right side */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: Calibri, sans-serif;
+    font-weight: bold;
+    position: fixed; /* Keeps sidebar positioned to the side */
+    top: 100px; /* Start the sidebar below the header */
+    left: 0; /* Aligns sidebar to the left of the viewport */
+    overflow-y: auto; /* Allows scrolling within the sidebar */
+}
+
+.CustomerSideBar p {
+    font-size: 25px; /* Larger font size for the title */
+    margin-top: 0;
+    margin-bottom: 20px; /* Space below the title */
+    color: darkblue;
+}
+
+/* Styling links */
+.CustomerSideBar .link {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 30px 0;
+    border-radius: 50px;
+    text-decoration: none; /* Removes underline from links */
+    color: #333; /* Dark grey color for links */
+    font-size: 20px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.CustomerSideBar .link:hover {
+    background-color: #f1c9c9; /* Light grey background on hover */
+}
+
+.CustomerSideBar .link.active {
+    background-color: #5C6BC0; /* Dark blue background for active link */
+    color: #fff; /* White text color for active link */
+}
+
+/* Icon styling */
+.CustomerSideBar .link i {
+    font-size: 20px; /* Size of the icon */
+    width: 30px; /* Ensures all icons are the same width */
+    text-align: center;
+}
+
+/* Optional: Search bar styling */
+.search-bar {
+    padding: 10px;
+    margin-bottom: 20px; /* Space below the search bar */
+    border: 1px solid #ccc; /* Subtle border for the search bar */
+    border-radius: 5px;
+}
+
+/* Main content area */
+.main-content {
+    margin-left: 250px; /* Offset by the width of the sidebar */
+    width: calc(100% - 250px); /* Adjust width to take up the remaining space */
+    padding: 20px; /* Padding around content */
+    position: relative; /* Necessary for proper layering */
+    min-height: calc(100vh - 60px); /* Adjust for the header height */
+}
+.alerts {
+    position: sticky;
+    top: 60px;  /* Adjust based on your layout */
+    right: 10px;  /* Position near the bell icon */
+    width: 200px;  /* Set the width of the alerts box */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;  /* Ensures it sits on top of other content */
+    padding: 10px;
+}
+
+.alerts p {
+    margin: 5px 0;  /* Adds space between each alert */
+    padding: 5px;  /* Pads each alert for better readability */
+    font-size: 14px;
+}
+

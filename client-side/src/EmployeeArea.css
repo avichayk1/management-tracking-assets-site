@@ -1,0 +1,29 @@
+.EmployeeAreabackground {
+    background-image: url('./photos/ManagerAreabackground.webp'); /* Adjust path as necessary */
+    background-size: cover; /* Cover the entire area of the element */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Optional: Fixed background on scroll */
+    min-height: 100vh; /* Minimum height to cover the full viewport */
+    width: 100%;
+    position: relative; /* Establishes a stacking context for z-index */
+}
+.p9{
+    padding-top: 80px;
+}
+
+.App6 {
+    font-size: 30px;
+    line-height: 4.5    ;
+    color: white;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: Calibri, sans-serif;
+    width: 100%; /* Adjusts the width of the transparent area */
+    max-width: 3000px; /* Optionally set a maximum width */
+    margin: auto; /* Centers the block horizontally */
+    font-weight: bold;
+    align-items: center;
+    text-align: center;
+}
+
+

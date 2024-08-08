@@ -1,0 +1,101 @@
+.managerInventory {
+    background-image: url('./photos/pic.jpg'); /* Ensure this is the correct relative path */
+    background-size: cover;
+    background-position: center;
+    padding: 1px;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+h2 { /* Assuming your heading is h2 instead of h27 */
+    font-size: 40px;
+    color: darkblue;
+    font-family: Calibri, sans-serif;
+    font-weight: bold;
+    margin-left: 920px; /* Adjust margin-left as needed */
+    margin-bottom: 50px; /* Added margin for spacing */
+    margin-top: 50px;
+}
+.text {
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 25px;
+}
+.OfficeDepot {
+    width: 120px;
+    height: 100px;
+    order: 2; /* Keeps the logo on the right */
+    margin-top: 10px;
+}
+
+table {
+    width: 60%; /* Reduce overall table width if needed */
+    border-collapse: collapse;
+    margin-left: 500px;
+    font-size: 20px;
+}
+
+th, td {
+    padding: 8px;
+    border: 3px solid #ddd;
+    text-align: center;
+}
+
+/* Example of setting specific widths for each column */
+th:nth-child(1), td:nth-child(1) { /* Item Name column */
+    width: 4%;
+}
+
+th:nth-child(2), td:nth-child(2) { /* Quantity column */
+    width: 4%;
+}
+
+th:nth-child(3), td:nth-child(3) { /* Unit Price column */
+    width: 4%;
+}
+
+th:nth-child(4), td:nth-child(4) { /* Total Cost column */
+    width: 4%;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+    border: 3px solid #ddd;
+
+
+}
+
+th {
+    background-color: #daedf5;
+    font-weight: bold; /* Titles in bold */
+}
+
+/* Assuming your sidebar class is .ManagerSideBar */
+.ManagerSideBar {
+    width: 25%; /* Reduce sidebar width */
+    position: absolute; /* Absolute positioning */
+    top: 80px; /* Adjust top position based on header height */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally using transform */
+    /* Additional styles for sidebar (optional) */
+    /* background-color: #f1f1f1; */
+    /* padding: 20px; */
+    /* border: 1px solid #ccc; */
+    /* border-radius: 5px; */
+}
+
+#eventForm label {
+    display: block;
+    margin-bottom: 1px;
+}
+
+#eventForm input, #eventForm button {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 1px;
+    border-radius: 12px;
+}

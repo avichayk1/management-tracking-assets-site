@@ -1,0 +1,53 @@
+.background6 {
+    background-image: url('./photos/beige.jpg'); /* Adjust path as necessary */
+    background-size: cover; /* Cover the entire area of the element */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Optional: Fixed background on scroll */
+    min-height: 100vh; /* Minimum height to cover the full viewport */
+    width: 100%;
+    position: relative; /* Establishes a stacking context for z-index */
+    margin-left: 160px;
+}
+.EmployeeSideBar {
+    flex: 0 0 200px; /* Assigns a fixed width to the sidebar */
+    height: 100%; /* Full height of its parent */
+}
+.accordion2 {
+    flex: auto; /* Takes up the remaining space */
+    margin: 120px;
+    border: 1px solid #ddd;
+    overflow: auto; /* Adds scroll to the accordion if it overflows */
+}
+
+.accordion-item2 {
+    margin-bottom: 10px;
+}
+
+.accordion-button {
+    background: #4343c7;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 30px;
+    transition: background-color 0.6s ease;
+    font-family: Calibri, sans-serif;
+    font-weight: bold;
+}
+
+.accordion-button:hover {
+    background-color: darkblue;
+}
+
+.accordion-content2 {
+    background-color: rgb(185, 218, 232);
+    overflow: hidden;
+    padding: 0 18px;
+    border: 1px solid #ddd;
+    border-top: none;
+    font-size: 25px;
+    line-height: 1.5;
+}

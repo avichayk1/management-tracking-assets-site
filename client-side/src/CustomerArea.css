@@ -1,0 +1,26 @@
+.backgroundd {
+    background-image: url('./photos/backg.jpg'); /* Adjust path as necessary */
+    background-size: cover; /* Cover the entire area of the element */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Optional: Fixed background on scroll */
+    min-height: 100vh; /* Minimum height to cover the full viewport */
+    width: 100%;
+    position: relative; /* Establishes a stacking context for z-index */
+}
+
+.App2 {
+    font-size: 25px;
+    line-height: 3;
+    color: white; /* Ensure text is readable on potentially dark background */
+    padding: 150px; /* Padding around the text content */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Dark transparent overlay for better readability */
+    font-family: Calibri, sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+h9 {
+    font-size: 40px;
+    color: #ffffff;
+    font-family: Calibri, sans-serif;
+}

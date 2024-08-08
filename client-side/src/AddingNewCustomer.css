@@ -1,0 +1,110 @@
+/* Importing the image */
+.AddingNewCustomer {
+    background-image: url('./photos/beige.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h981 {
+    font-size: 30px;
+    color: darkblue;
+    font-family: Calibri, sans-serif;
+    font-weight: bold;
+    margin-left: 400px;
+    margin-bottom: 950px;
+}
+header {
+    position: absolute; /* Position the header absolutely */
+    top: 0; /* Place it at the top of the viewport */
+    left: 0; /* Align it to the left */
+    width: 100%; /* Span the entire width */
+    z-index: 10; /* Ensure it stays above other elements */
+}
+/* Header Styling */
+.AddingNewCustomer header {
+    /* Style your header here */
+}
+
+/* EmployeeSideBar Styling */
+.AddingNewCustomer .EmployeeSideBar {
+    /* Style your EmployeeSideBar here */
+}
+
+/* Container Styling */
+.container789 {
+    width:700px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}
+
+/* Title Styling */
+.container789 h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+/* Accordion Button Styling */
+.accordion {
+    background-color: #eee;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 98%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+
+}
+
+.active,
+.accordion:hover {
+    background-color: #ccc;
+}
+
+/* Panel Styling */
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+}
+
+/* Register Button Styling */
+.register-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 18px;
+}
+
+/* Input Styling */
+.panel input[type="text"],
+.panel input[type="email"],
+.panel input[type="tel"],
+.panel input[type="password"],
+.panel input[type="date"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

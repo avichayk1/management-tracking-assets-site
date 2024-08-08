@@ -1,0 +1,87 @@
+.EmployeeInventoryUpdate2 {
+    background-image: url('./photos/beige.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Remove `align-items: center;` here */
+    font-family: Calibri, sans-serif;
+}
+
+.InventoryForm2 {
+    font-size: 25px;
+    color: white;
+    padding: 20px ;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%; /* Adjust width if needed */
+    max-width: 2500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Display the table as a block and center it horizontally (optional) */
+    display: block;
+    padding-left:810px;
+    padding-top: 40px;
+}
+
+.styled-table2 {
+    width: 100%;  /* Adjust this if the table should not be full-width */
+    border-collapse: collapse;
+    margin: 20px auto;  /* Adjust margin for centering */
+    font-size: 0.9em;
+    min-width: 800px;  /* Ensure this does not exceed container width */
+    border-radius: 5px;
+    overflow: hidden;
+    padding-top: initial;
+}
+
+.styled-table2 select,
+.styled-table2 input[type="date"],
+.styled-table2 input[type="number"] {
+    font-size: 1em;  /* Increasing font size */
+}
+.styled-table2 input[type="radio"] + label {
+    font-size: 0.8em;  /* Smaller font size for radio button labels */
+    margin-right: 10px;  /* Spacing between radio buttons */
+    display: inline-block;  /* Align labels horizontally */
+}
+.styled-table2 thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.styled-table2 th, .styled-table td {
+    padding: 10px 10px;
+    text-align: left;
+}
+.form2{
+    margin-top: 10px;
+    width: 0px;
+    height: 450px;
+    padding: 0px;
+}
+
+.styled-table2 tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table2 tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table2 tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table2 tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+.AddRowBtn{
+    margin-left :50rem
+}
+

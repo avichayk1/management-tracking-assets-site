@@ -1,0 +1,76 @@
+.Contact-background {
+    background-image: url('./photos/contactBackground.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Ensures vertical stacking */
+    justify-content: space-between; /* Spreads out the header, content, and footer */
+}
+
+.Melal {
+    font-size: 25px;
+    line-height: 2;
+    color: white;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: Calibri, sans-serif;
+    width: 100%; /* Adjusts the width of the transparent area */
+    max-width: 2500px; /* Optionally set a maximum width */
+    align-items: center;
+    text-align: center;
+    margin-top: 80px;
+    font-weight: bold;
+}
+
+.contact-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-left: 600px;
+    width: 20%;
+
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #000;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+    align-items: center;
+    text-align: center;
+
+}

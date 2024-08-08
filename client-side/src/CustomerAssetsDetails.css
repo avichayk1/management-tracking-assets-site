@@ -1,0 +1,53 @@
+.CustomerAssetsDetails {
+    background-image: url('./photos/CustomerAssetsDetailsback.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    margin-left: auto;
+}
+
+
+
+.table-container {
+    background-color: rgba(255, 255, 255, 0.5); /* Optional: Dark transparent overlay for better readability */
+    padding: 160px;
+
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto; /* Centering the table within the container */
+    margin-top: 30px;
+}
+th, td {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid gray;
+}
+h980 {
+    font-size: 30px;
+    color: darkblue;
+    font-family: Calibri, sans-serif;
+    font-weight: bold;
+    margin-left: 880px;
+    margin-bottom: 950px;
+}
+
+th {
+    background-color: lightblue;
+}
+
+.details-container {
+    padding: 30px;
+    background-color: #f3f3f3;
+}
+
+td:hover {
+    background-color: #ade8f4;
+    cursor: pointer;
+}

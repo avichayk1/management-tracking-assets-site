@@ -1,0 +1,93 @@
+body {
+    background-image: url('./photos/beige.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.employee-calendar {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-container {
+    margin: 150px auto; /* Increased top margin to lower the calendar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px; /* Increased max width */
+}
+
+.react-calendar {
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Larger maximum width */
+    border: 1px solid #a0a096;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: transparent; /* Make background transparent */
+}
+
+.react-calendar__tile {
+    position: relative;
+    color: black;
+    font-size: 1.2em; /* Increase date numbers font size */
+}
+
+.react-calendar__tile:hover {
+    background-color: lightblue;
+}
+
+.react-calendar__navigation {
+    background-color: darkblue;
+    color: white;
+    font-size: 1.7em; /* Increase navigation font size */
+}
+
+.react-calendar__navigation button {
+    color: white;
+    font-size: 1em; /* Ensure button font size is increased too */
+}
+
+.react-calendar_month-viewdays_day {
+    font-size: 1.2em; /* Increase the size of the dates in month view */
+}
+
+.react-calendar_month-view_weekdays {
+    font-size: 1.2em; /* Increase the size of the weekdays */
+}
+
+.react-calendar_month-viewweekdays_weekday {
+    font-size: 1.2em; /* Increase the size of the individual weekday names */
+}
+
+.tasks-on-date {
+    font-size: 0.8em;
+    color: black;
+}
+
+.task {
+    background-color: #bfffeb;
+    padding: 5px;
+    margin: 2px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    word-wrap: break-word;
+}
+
+.task-details {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.task-details-content {
+    text-align: center;
+}

@@ -1,0 +1,87 @@
+.CustomerPersonalDetails {
+    font-family: Calibri, sans-serif;
+    background-image: url('./photos/CustomerAssetsDetailsback.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.container2 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container2 h45 { /* Changed from h45 to h1 assuming it was a typo */
+    text-align: center;
+    font-size: 40px;
+    color: dark blue;
+    font-family: Calibri, sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    margin-top: 0px; /* Adjusted for less space above the buttons */
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: white; /* Ensures all input fields have a consistent background color */
+}
+
+input:disabled,
+textarea:disabled {
+    background-color: #f2f2f2; /* Style for disabled inputs */
+}
+
+textarea {
+    resize: none; /* Disables resizing for textarea */
+}
+
+#customerImage {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 0.5px; /* Reduced from 20px to 10px for less space */
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+button {
+    background-color: darkcyan;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #bddef1;
+}

@@ -1,0 +1,35 @@
+.footer {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align the content */
+    text-align: center; /* Center-align text */
+    font-family: Calibri, sans-serif; /* Set the font family */
+    color: white; /* Set text color to white */
+    background-color: transparent; /* Make the background transparent */
+    padding: 20px; /* Add padding for spacing */
+    font-size: 16px; /* Adjust the font size as needed */
+}
+
+.footer p {
+    margin: 0 0 20px 0; /* Add space below the paragraph */
+}
+
+/* Social Media Icons */
+.instegram, .Facebook, .Twiter {
+    width: 30px; /* Increase the size of the icons */
+    height: 30px; /* Maintain aspect ratio */
+    margin: 5px; /* Space between the icons */
+}
+
+/* Adjust the list style */
+.footer ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+/* Icons container */
+.icons {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+}
