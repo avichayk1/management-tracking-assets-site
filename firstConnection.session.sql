@@ -1,5 +1,5 @@
 
-
+--create 2
 CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id int UNIQUE,
@@ -11,7 +11,7 @@ CREATE TABLE Customers (
     customer_d_join DATE,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
-
+--create 3
 CREATE TABLE Assets (
     asset_id int AUTO_INCREMENT PRIMARY KEY,
     asset_adress VARCHAR(45),
@@ -28,7 +28,7 @@ CREATE TABLE Assets (
     customer_id int,
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
-
+--create 4
 CREATE TABLE ActiveTenants (
     asset_id int UNIQUE,
     tenant_f_name VARCHAR(45),
@@ -38,7 +38,7 @@ CREATE TABLE ActiveTenants (
     PRIMARY KEY (asset_id, tenant_id),
     FOREIGN KEY (asset_id) REFERENCES Assets(asset_id)
 );
-
+--create 5
 CREATE TABLE PassiveTenants (
     asset_id int UNIQUE,
     last_maintenance DATE,
@@ -46,7 +46,7 @@ CREATE TABLE PassiveTenants (
     PRIMARY KEY (asset_id),
     FOREIGN KEY (asset_id) REFERENCES Assets(asset_id)
 );
-
+--create 7
 CREATE TABLE StockOrders (
     order_id int AUTO_INCREMENT PRIMARY KEY,
     order_date DATE,
@@ -58,7 +58,7 @@ CREATE TABLE StockOrders (
     FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 
 );
-
+--create 6
 CREATE TABLE Employees (
     employee_id int AUTO_INCREMENT PRIMARY KEY,
     user_id int UNIQUE,
@@ -71,7 +71,7 @@ CREATE TABLE Employees (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 drop table Employees
-
+--create 8
 CREATE TABLE Journals (
     journal_id int  AUTO_INCREMENT PRIMARY KEY,
     name_ VARCHAR(45),
@@ -80,6 +80,7 @@ CREATE TABLE Journals (
     employee_id int,
     FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
+--create 9
 
 CREATE TABLE Contacts (
     full_name VARCHAR(45),
@@ -91,6 +92,7 @@ CREATE TABLE Contacts (
     PRIMARY KEY (customer_id, customer_mail),
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
+--create 10
 
 CREATE TABLE CustomersOpinions (
     opinion_id int AUTO_INCREMENT PRIMARY KEY,
@@ -103,7 +105,7 @@ CREATE TABLE CustomersOpinions (
     frequency VARCHAR(45),
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
-
+--create 1
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(45),
