@@ -2,12 +2,18 @@ import React, { useState, useEffect } from 'react';
 import './CustomerPersonalDetails.css';
 import CustomerSideBar from './CustomerSideBar';
 import Header from "./header";
-import { useParams } from 'react-router-dom';
+import { useParams ,useLocation} from 'react-router-dom';
 import axios from 'axios';
 
 const CustomerPersonalDetails = () => {
     const { id } = useParams();
-    const storedCustomer = JSON.parse(localStorage.getItem(id));
+    const location = useLocation(); // Access the location object
+    
+    // Parse the query parameters
+    const queryParams = new URLSearchParams(location.search);
+    const customer_id = queryParams.get('customer_id'); 
+    console.log("CustomerPersonalDetails ",customer_id )
+    const storedCustomer = JSON.parse(localStorage.getItem(customer_id));
 
     const [customer, setCustomer] = useState({
         customer_f_name: '',

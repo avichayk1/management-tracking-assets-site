@@ -3,8 +3,12 @@ import {
   } from '../models/customerDB.js';
 async function getCustomerDetails(req, res){
     console.log("update")
+    console.log(req)
     console.log(req.params.id)
+    const customer_id=req.query.customer_id;
+    console.log("customer_id",customer_id)
     const customer = await getCustomer(req.params.id)
+
     .then((table) => {
       if (table[0].length === 0) {
         return res.status(401).send({ error: "user doesn't exists." });

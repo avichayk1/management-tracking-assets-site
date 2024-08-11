@@ -4,28 +4,35 @@ import Footer from "./footer";
 import CustomerSideBar from "./CustomerSideBar";
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams ,useLocation} from 'react-router-dom';
 
 
 const CustomerArea = () => {
     console.log("i am in CustomerArea")
     const {id}=useParams();
     console.log("id from parms "+id)
-    useEffect(() => {
-        console.log("heeeeeeeeeeeey")
-        const fetchUserDetails = async () => {
-            // const id = 3;
-            console.log("your ikd is "+id)
-            try {
-                const response = await axios.get(`http://localhost:3000/customer-details/${id}`); // Replace with your actual endpoint
-                console.log(response.data)
-                localStorage.setItem(response.data.customer.customer_id, JSON.stringify(response.data.customer));
-            } catch (error) {
-                console.error('Error fetching user details:', error);
-            }
-        };
-        fetchUserDetails();
-    }, []);
+    const location = useLocation(); // Access the location object
+    
+    // Parse the query parameters
+    const queryParams = new URLSearchParams(location.search);
+    const customer_id = queryParams.get('customer_id'); 
+    console.log("customer_id from quary "+customer_id)
+   
+    // useEffect(() => {
+    //     console.log("heeeeeeeeeeeey")
+    //     const fetchUserDetails = async () => {
+    //         // const id = 3;
+    //         console.log("your ikd is "+id)
+    //         try {
+    //             const response = await axios.get(`http://localhost:3000/customer-details/${customer_id}`); // Replace with your actual endpoint
+    //             console.log(response.data)
+    //             localStorage.setItem(response.data.customer.customer_id, JSON.stringify(response.data.customer));
+    //         } catch (error) {
+    //             console.error('Error fetching user details:', error);
+    //         }
+    //     };
+    //     fetchUserDetails();
+    // }, []);
     return (
         <div className="backgroundd"> {/* Added a class to use for setting the background */}
             <Header />

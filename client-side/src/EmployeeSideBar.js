@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import "./EmployeeSideBar.css";
 import Bell from "./photos/bell.png";
 import AddingNewCustomer from "./AddingNewCustomer";
+import { useParams } from 'react-router-dom';
 
 const EmployeeSideBar = () => {
     const [showAlerts, setShowAlerts] = useState(false);
+    const {id}=useParams();
     const alerts = [
         "You have a new message."
     ];
@@ -23,12 +25,12 @@ const EmployeeSideBar = () => {
                                 ))}
                             </div>
                         )}
-                        <Link to="/EmployeeArea" className="link">Personal area</Link>
-                        <Link to="/EmployeePersonalDetails" className="link">Personal details</Link>
-                        <Link to="/AddingNewCustomer" className="link">Add New Customer</Link>
-                        <Link to="/EmployeeInventoryUpdate" className="link">Inventory</Link>
-                        <Link to="/EmployeeCalendar" className="link">Calendar</Link>
-                        <Link to="/EmployeeContact" className="link">Contact info</Link>
+                        <Link to={`/EmployeeArea/${id}`} className="link">Personal area</Link>
+                        <Link to={`/EmployeePersonalDetails/${id}`} className="link">Personal details</Link>
+                        <Link to={`/AddingNewCustomer/${id}`} className="link">Add New Customer</Link>
+                        <Link to={`/EmployeeInventoryUpdate/${id}`} className="link">Inventory</Link>
+                        <Link to={`/EmployeeCalendar/${id}`} className="link">Calendar</Link>
+                        <Link to={`/EmployeeContact/${id}`} className="link">Contact info</Link>
                     </li>
                 </ul>
             </div>

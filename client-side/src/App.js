@@ -36,18 +36,18 @@ const App = () => {
                 <Route path="/CustomerAssetsDetails/:id" element={<CustomerAssetsDetails />} />
                 <Route path="/CustomerContact/:id" element={<CustomerContact />} />
                 <Route path="/CustomerReports/:id" element={<CustomerReports />} />
-                <Route path="/EmployeeArea" element={<EmployeeArea />} />
-                <Route path="/EmployeePersonalDetails" element={<EmployeePersonalDetails />} />
-                <Route path="/EmployeeInventoryUpdate" element={<EmployeeInventoryUpdate />} />
-                <Route path="/EmployeeCalendar" element={<EmployeeCalendar />} />
-                <Route path="/EmployeeContact" element={<EmployeeContact />} />
-                <Route path="/ManagerArea" element={<ManagerArea />} />
-                <Route path="/ManagerCalendar" element={<ManagerCalendar />} />
-                <Route path="/ManagerAvailableInventory" element={<ManagerAvailableInventory />} />
-                <Route path="/ManagerSurveyDistribution" element={<ManagerSurveyDistribution />} />
-                <Route path="/CustomerSurvey" element={<CustomerSurvey />} />
-                <Route path="/AddingNewCustomer" element={<AddingNewCustomer />} />
-                <Route path="/stam" element={<Stam />} />
+                <Route path="/EmployeeArea/:id" element={<EmployeeArea />} />
+                <Route path="/EmployeePersonalDetails/:id" element={<EmployeePersonalDetails />} />
+                <Route path="/EmployeeInventoryUpdate/:id" element={<EmployeeInventoryUpdate />} />
+                <Route path="/EmployeeCalendar/:id" element={<EmployeeCalendar />} />
+                <Route path="/EmployeeContact/:id" element={<EmployeeContact />} />
+                <Route path="/ManagerArea/:id" element={<ManagerArea />} />
+                <Route path="/ManagerCalendar/:id" element={<ManagerCalendar />} />
+                <Route path="/ManagerAvailableInventory/:id" element={<ManagerAvailableInventory />} />
+                <Route path="/ManagerSurveyDistribution/:id" element={<ManagerSurveyDistribution />} />
+                <Route path="/CustomerSurvey/:id" element={<CustomerSurvey />} />
+                <Route path="/AddingNewCustomer/:id" element={<AddingNewCustomer />} />
+                <Route path="/stam/:id" element={<Stam />} />
             </Routes>
         </Router>
     );

@@ -4,7 +4,7 @@ import Header from "./header";
 import Footer from "./footer";
 import CustomerSideBar from "./CustomerSideBar";
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams ,useLocation } from 'react-router-dom';
 const CustomerContact = () => {
     const [formData, setFormData] = useState({
         // fullName: '',
@@ -16,6 +16,11 @@ const CustomerContact = () => {
         // requestBid: false,
         // file: null
     });
+    const location = useLocation(); // Access the location object
+        
+    // Parse the query parameters
+    const queryParams = new URLSearchParams(location.search);
+    const customer_id = queryParams.get('customer_id'); 
     const [submitSuccess, setSubmitSuccess] = useState(false);
     // const {id}=useParams();
     // console.log("const {customerId}=useParams(): " + id);
@@ -25,11 +30,11 @@ const CustomerContact = () => {
         console.log("I am in CustomerContact");
         // const { id } = useParams();
         console.log("ID from params: " + id);
-        console.log(`http://localhost:3000/CustomerContact/${id}`);
+        console.log(`http://localhost:3000/CustomerContact/${customer_id}`);
         
         const fetchAssets = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/customer-contact/${id}`);
+                const response = await axios.get(`http://localhost:3000/customer-contact/${customer_id}`);
                 console.log(response.data);
                 const contact  = response.data.customer_contact ? [response.data.customer_contact[0]] : [];
                 console.log("contact", contact);

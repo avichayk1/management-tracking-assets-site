@@ -279,3 +279,10 @@ INSERT INTO Contacts (full_name, customer_mail, customer_phone, message_, custom
 ('Lisa White', 'lisa.white@example.com', '555-222-3333', 'Looking for a refund process.', 2, 'B'),
 ('Alex Brown', 'alex.brown@example.com', '555-444-5555', 'Inquiry about warranty services.', 3, 'C')
 
+DELETE FROM Users
+WHERE user_id = 11 OR user_id = 12 OR user_id =13;
+
+
+UPDATE Customers
+SET user_id = 9
+WHERE customer_id=2;

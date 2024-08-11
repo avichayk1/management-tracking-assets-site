@@ -1,27 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './EmployeePersonalDetails.css';
 import EmployeeSideBar from './EmployeeSideBar';
 import Header from "./header";
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const EmployeePersonalDetails = () => {
+    const { id } = useParams();
+    const storedEmployee = JSON.parse(localStorage.getItem(id));        
+    console.log("i am in EmployeePersonalDetails id is:" , id)
+
     const [employee, setEmployee] = useState({
-        firstName: 'David',
-        lastName: 'Cohen',
-        phoneNumber: '054-984-2342',
-        email: 'DavidC@move.com',
-        address: 'Sderot Yaalim 98, Tel Aviv',
-        idNumber: '205621414',
-        employeeImage: 'default-Employee-image.jpg',
+        employee_f_name: "",
+        employee_l_name: "",
+        employee_phone: "",
+        employee_mail: "",
+        employee_adress: "",
+        employee_id: "",
+        employee_team: "",
+        customerImage: 'default-customer-image.jpg',
         isEditable: false
     });
 
     const [isImageUploaderOpen, setImageUploaderOpen] = useState(false);
     const [message, setMessage] = useState('');
 
-    const handleInputChange = (e) => {
-        const { id, value } = e.target;
-        setEmployee(prevState => ({ ...prevState, [id]: value }));
-    };
+
+    useEffect(() => {
+        console.log("i am in EmployeePersonalDetails id is:" , id)
+        console.log('storedEmployee  ', storedEmployee)
+        if (storedEmployee) {
+            setEmployee({
+                employee_f_name: storedEmployee.employee_f_name,
+                employee_l_name: storedEmployee.employee_l_name,
+                employee_phone: storedEmployee.employee_phone,
+                employee_mail: storedEmployee.employee_mail,
+                employee_adress: storedEmployee.employee_adress,
+                employee_id: storedEmployee.employee_id,
+                employee_team: storedEmployee.employee_team,
+                customerImage: 'default-customer-image.jpg',
+                isEditable: false
+            });
+        }
+    }, []);
+    // const handleInputChange = (e) => {
+    //     const { id, value } = e.target;
+    //     setEmployee(prevState => ({ ...prevState, [id]: value }));
+    // };
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
@@ -46,7 +71,7 @@ const EmployeePersonalDetails = () => {
             <Header/>
             <EmployeeSideBar />
             <div className="container2">
-                <h43>Personal Information</h43> {/* Changed h43 to h1 for proper semantics */}
+                <h1>Personal Information</h1> {/* Changed h43 to h1 for proper semantics */}
                 <div id="EmployeeDetails">
                     <img id="EmployeeImage" src={employee.employeeImage} alt="Employee" />
 
@@ -61,22 +86,22 @@ const EmployeePersonalDetails = () => {
                     {message && <p>{message}</p>}
 
                     <label htmlFor="firstName">First Name:</label>
-                    <input type="text" id="firstName" value={employee.firstName} onChange={handleInputChange} disabled={!employee.isEditable} />
+                    <input type="text" id="firstName" value={employee.employee_f_name} onChange={(e)=>setEmployee({...employee, employee_f_name: e.target.value})} disabled={!employee.isEditable} />
 
                     <label htmlFor="lastName">Last Name:</label>
-                    <input type="text" id="lastName" value={employee.lastName} onChange={handleInputChange} disabled={!employee.isEditable} />
+                    <input type="text" id="lastName" value={employee.employee_l_name}onChange={(e)=>setEmployee({...employee, employee_l_name: e.target.value})} disabled={!employee.isEditable} />
 
                     <label htmlFor="idNumber">ID Number:</label>
-                    <input type="text" id="idNumber" value={employee.idNumber} disabled />
+                    <input type="text" id="idNumber" value={employee.employee_id} disabled />
 
                     <label htmlFor="phoneNumber">Phone Number:</label>
-                    <input type="text" id="phoneNumber" value={employee.phoneNumber} onChange={handleInputChange} disabled={!employee.isEditable} />
+                    <input type="text" id="phoneNumber" value={employee.employee_phone} onChange={(e)=>setEmployee({...employee, employee_phone: e.target.value})} disabled={!employee.isEditable} />
 
                     <label htmlFor="email">Email Address:</label>
-                    <input type="email" id="email" value={employee.email} onChange={handleInputChange} disabled={!employee.isEditable} />
+                    <input type="email" id="email" value={employee.employee_mail} onChange={(e)=>setEmployee({...employee, employee_mail: e.target.value})} disabled={!employee.isEditable} />
 
                     <label htmlFor="address">Address:</label>
-                    <textarea id="address" rows="4" value={employee.address} onChange={handleInputChange} disabled={!employee.isEditable}></textarea>
+                    <textarea id="address" rows="4" value={employee.employee_adress} onChange={(e)=>setEmployee({...employee, employee_adress: e.target.value})} disabled={!employee.isEditable}></textarea>
                 </div>
             </div>
         </div>

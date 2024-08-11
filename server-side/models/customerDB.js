@@ -3,7 +3,7 @@ async function getCustomer(id) {
     console.log("in function getCustomer from db");
     console.log(id +"in customerDB")
     const sql = `SELECT * FROM Customers where user_id="${id}" `;
-    const res = pool.query(sql);
+    const res = await pool.query(sql);
     //   console.log(JSON.parse(res[0]));
     console.log(res)
     return res;
