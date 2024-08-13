@@ -36,7 +36,26 @@ const LoginPage = () => {
                 localStorage.setItem(response.data.user.user_name, JSON.stringify(userWithoutPassword)); // Save customerId to localStorage
 
                 if (response.data.user.user_type === 'employee') {
-                    navigate(`/EmployeeArea/${response.data.user.user_id}`);
+                    const fetchUserDetails = async () => {
+                        const id = response.data.user.user_id;
+                        console.log("your id is " + id);
+                        try {
+                            console.log('axios.get:', `http://localhost:3000/employee-details/${id}`);
+                            const response = await axios.get(`http://localhost:3000/employee-details/${id}`); // Replace with your actual endpoint
+                            console.log("i succeeded", response.data);
+                            setCustomer_id(response.data.employee.employee_id);
+                            console.log("response.data.employee.employee_id", response.data.employee.employee_id);
+                            localStorage.setItem(response.data.employee.employee_id, JSON.stringify(response.data.employee));
+                            return response.data.employee.employee_id;
+                        } catch (error) {
+                            console.error('Error fetching user details:', error);
+                        }
+                    };
+
+                    const fetchedEmployeeId = await fetchUserDetails();
+                    console.log("fetch succeeded", fetchedEmployeeId);
+                    console.log('Navigating to:', `/EmployeeArea/${response.data.user.user_id}?employee_id=${fetchedEmployeeId}`);
+                    navigate(`/EmployeeArea/${response.data.user.user_id}?employee_id=${fetchedEmployeeId}`);
                 } else if (response.data.user.user_type === 'manager') {
                     navigate(`/ManagerArea/${response.data.user.user_id}`);
                 } else {

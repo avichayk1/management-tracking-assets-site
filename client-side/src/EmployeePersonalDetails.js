@@ -2,13 +2,20 @@ import React, { useState,useEffect } from 'react';
 import './EmployeePersonalDetails.css';
 import EmployeeSideBar from './EmployeeSideBar';
 import Header from "./header";
-import { useParams } from 'react-router-dom';
+import { useParams,useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 const EmployeePersonalDetails = () => {
+    console.log("EmployeePersonalDetails")
     const { id } = useParams();
-    const storedEmployee = JSON.parse(localStorage.getItem(id));        
-    console.log("i am in EmployeePersonalDetails id is:" , id)
+    const location = useLocation(); // Access the location object
+    
+    // Parse the query parameters
+    const queryParams = new URLSearchParams(location.search);
+    const employee_id = queryParams.get('employee_id'); 
+    console.log("employee_id is:",employee_id)
+    const storedEmployee = JSON.parse(localStorage.getItem(employee_id));        
+    console.log("i am in EmployeePersonalDetails id is:" , employee_id)
 
     const [employee, setEmployee] = useState({
         employee_f_name: "",
@@ -59,10 +66,32 @@ const EmployeePersonalDetails = () => {
 
     const toggleEdit = () => {
         setEmployee(prev => ({ ...prev, isEditable: !prev.isEditable }));
-        setMessage('');
+        setMessage(''); 
     };
 
-    const saveDetails = () => {
+    const saveDetails = async (e) => {
+        const updatedEmployee = {
+            employee_f_name: employee.employee_f_name,
+            employee_l_name: employee.employee_l_name,
+            employee_id: employee.employee_id,
+            employee_phone: employee.employee_phone,
+            employee_mail: employee.employee_mail,
+            employee_adress: employee.employee_adress
+        };
+        try {
+            const response = await axios.put(`http://localhost:3000/updateEmployee/${employee.employee_id}`, updatedEmployee, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log("Update employee successfuly")
+            const { message } = response.data;
+            setMessage(message);
+            // setError('')
+        } catch (error) {
+            console.error('Error during update:', error);
+            // setError('Server error');
+        }
         setMessage('Details have been updated successfully!');
     };
 

@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import "./EmployeeSideBar.css";
 import Bell from "./photos/bell.png";
 import AddingNewCustomer from "./AddingNewCustomer";
-import { useParams } from 'react-router-dom';
+import { useParams ,useLocation} from 'react-router-dom';
 
 const EmployeeSideBar = () => {
     const [showAlerts, setShowAlerts] = useState(false);
     const {id}=useParams();
+    const location = useLocation(); // Access the location object
+    
+    // Parse the query parameters
+    const queryParams = new URLSearchParams(location.search);
+    const employee_id = queryParams.get('employee_id'); 
     const alerts = [
         "You have a new message."
     ];
@@ -25,12 +30,12 @@ const EmployeeSideBar = () => {
                                 ))}
                             </div>
                         )}
-                        <Link to={`/EmployeeArea/${id}`} className="link">Personal area</Link>
-                        <Link to={`/EmployeePersonalDetails/${id}`} className="link">Personal details</Link>
-                        <Link to={`/AddingNewCustomer/${id}`} className="link">Add New Customer</Link>
-                        <Link to={`/EmployeeInventoryUpdate/${id}`} className="link">Inventory</Link>
-                        <Link to={`/EmployeeCalendar/${id}`} className="link">Calendar</Link>
-                        <Link to={`/EmployeeContact/${id}`} className="link">Contact info</Link>
+                        <Link to={`/EmployeeArea/${id}?employee_id=${employee_id}`} className="link">Personal area</Link>
+                        <Link to={`/EmployeePersonalDetails/${id}?employee_id=${employee_id}`} className="link">Personal details</Link>
+                        <Link to={`/AddingNewCustomer/${id}?employee_id=${employee_id}`} className="link">Add New Customer</Link>
+                        <Link to={`/EmployeeInventoryUpdate/${id}?employee_id=${employee_id}`} className="link">Inventory</Link>
+                        <Link to={`/EmployeeCalendar/${id}?employee_id=${employee_id}`} className="link">Calendar</Link>
+                        <Link to={`/EmployeeContact/${id}?employee_id=${employee_id}`} className="link">Contact info</Link>
                     </li>
                 </ul>
             </div>
