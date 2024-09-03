@@ -47,11 +47,11 @@ const CustomerAssetsDetails = () => {
         console.log("I am in CustomerAssetDetails");
         // const id = 1; // replace this with actual id from useParams or other source
         console.log("ID from params: " + id);
-        console.log(`http://localhost:3000/customer-assets/${customer_id}`);
+        console.log(`http://localhost:3001/customer-assets/${customer_id}`);
         
         const fetchAssets = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/customer-assets/${customer_id}`);
+                const response = await axios.get(`http://localhost:3001/customer-assets/${customer_id}`);
                 console.log(response.data);
                 const newAssets = response.data.customer_assets ? [response.data.customer_assets] : [];
                 console.log("newAssets", newAssets);

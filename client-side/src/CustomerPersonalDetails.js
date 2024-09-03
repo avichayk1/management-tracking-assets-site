@@ -72,7 +72,7 @@ const CustomerPersonalDetails = () => {
         };
     
         try {
-            const response = await axios.put(`http://localhost:3000/updateCustomer/${customer.customer_id}`, updatedCustomer, {
+            const response = await axios.put(`http://localhost:3001/updateCustomer/${customer.customer_id}`, updatedCustomer, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

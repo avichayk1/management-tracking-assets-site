@@ -79,7 +79,7 @@ const EmployeePersonalDetails = () => {
             employee_adress: employee.employee_adress
         };
         try {
-            const response = await axios.put(`http://localhost:3000/updateEmployee/${employee.employee_id}`, updatedEmployee, {
+            const response = await axios.put(`http://localhost:3001/updateEmployee/${employee.employee_id}`, updatedEmployee, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

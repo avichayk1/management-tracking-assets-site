@@ -50,7 +50,7 @@ CREATE TABLE PassiveTenants (
 CREATE TABLE StockOrders (
     order_id int AUTO_INCREMENT PRIMARY KEY,
     order_date DATE,
-    amount VARCHAR(45),
+    amount int,
     item_name VARCHAR(45),
     action_type VARCHAR(45),
     employee_id int,
@@ -113,6 +113,12 @@ CREATE TABLE Users (
     user_type ENUM('employee', 'manager', 'customer')
 );
 
+CREATE TABLE Items(
+    item_id int AUTO_INCREMENT PRIMARY KEY,
+    item_cost int,
+    item_amount int,
+    item_name VARCHAR(45)
+);
 DROP TABLE log_in
 INSERT INTO users (id, Password) VALUES
 ('1234', '1234'),
@@ -144,7 +150,8 @@ DROP COLUMN asset_id;
 
 ALTER TABLE Assets
 MODIFY COLUMN asset_id AUTO_INCREMENT INT;
-
+ALTER TABLE StockOrders
+MODIFY COLUMN amount INT;
 ALTER TABLE Assets
 ADD CONSTRAINT fk_owner
 FOREIGN KEY (asset_id)
@@ -279,6 +286,19 @@ INSERT INTO Contacts (full_name, customer_mail, customer_phone, message_, custom
 ('Lisa White', 'lisa.white@example.com', '555-222-3333', 'Looking for a refund process.', 2, 'B'),
 ('Alex Brown', 'alex.brown@example.com', '555-444-5555', 'Inquiry about warranty services.', 3, 'C')
 
+ALTER table Items AUTO_INCREMENT = 1
+INSERT INTO Items (item_cost, item_name, item_amount) VALUES
+  (1000, 'Desktop Computer', 10),
+  (10, 'Mouse', 20),
+  (1, 'Pencils', 50),
+  (2, 'Pens', 30),
+  (200, 'Computer Monitors', 5),
+  (50, 'Printer Toner', 10),
+  (150, 'Printer', 2),
+  (5, 'A4 Paper', 50),
+  (3, 'Notepads', 15),
+  (2, 'Highlighters', 20),
+  (7, 'Ethernet Cables', 10)
 DELETE FROM Users
 WHERE user_id = 32 ;
 
@@ -286,3 +306,12 @@ WHERE user_id = 32 ;
 UPDATE Customers
 SET user_id = 9
 WHERE customer_id=2;
+
+INSERT INTO stockorders (
+    order_date,
+    amount,
+    item_name,
+    action_type,
+    employee_id,
+    urgency
+) VALUES ('2024-08-19', '1', 'Pencils', 'Update on exploitation', '5', '0');

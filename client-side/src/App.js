@@ -27,7 +27,7 @@ const App = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/home" element={<Home />} />
+                {/* <Route path="/home" element={<Home />} /> */}
                 <Route path="/Contact" element={<Contact />} />
                 <Route path="/qa" element={<Qa />} />
                 <Route path="/Login" element={<Login />} />
@@ -36,6 +36,7 @@ const App = () => {
                 <Route path="/CustomerAssetsDetails/:id" element={<CustomerAssetsDetails />} />
                 <Route path="/CustomerContact/:id" element={<CustomerContact />} />
                 <Route path="/CustomerReports/:id" element={<CustomerReports />} />
+                <Route path="/CustomerSurvey/:id" element={<CustomerSurvey/>} />
                 <Route path="/EmployeeArea/:id" element={<EmployeeArea />} />
                 <Route path="/EmployeePersonalDetails/:id" element={<EmployeePersonalDetails />} />
                 <Route path="/EmployeeInventoryUpdate/:id" element={<EmployeeInventoryUpdate />} />

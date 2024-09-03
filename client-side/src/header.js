@@ -12,6 +12,7 @@ const header = () => {
                     <Link to="/contact" className="link">Contact</Link>
                     <Link to="/qa" className="link">Q&A</Link>
                     <Link to="/Login" className="link">Login</Link>
+                    <Link to="/Login" className="link">Logout</Link>
                     <img className="Logo" src={LOGO} alt="Logo"/>
                 </ul>
             </div>

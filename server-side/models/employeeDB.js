@@ -1,4 +1,4 @@
-import { pool } from "./connection.js";
+import { pool,con } from "./connection.js";
 async function getEmployeeDB(id) {
     console.log("in function getEmployee from db");
     console.log(id +"in employeeDB")
@@ -145,4 +145,126 @@ WHERE
         throw error;
     }
   }
-  export{getEmployeeDB,updateEmployeeDB,registerCustomerDB,}
+  async function EmployeeInventoryUpdateDB(items) {
+    console.log("in function EmployeeInventoryUpdateDB");
+    console.log('items: ', items);
+    // Transform items into an array of values arrays
+    const values = items.map(item => [
+      item.date, // order_date
+      item.amount, // amount
+      item.item_name, // item_name
+      item.action_type, // action_type
+      item.employee_id, // employee_id
+      (() => { // Convert urgency to numeric value
+          switch (item.urgency) {
+              case "Low":
+                  return 0; // Numeric value
+              case "Medium":
+                  return 1; // Numeric value
+              case "High":
+                  return 2; // Numeric value
+              default:
+                  return 0; // Default value
+          }
+      })()
+  ]);
+     // SQL Query to insert or update user details (e.g., for authentication)
+     const sqlInventoryUpdate = `
+     INSERT INTO stockorders (
+         order_date,
+         amount,
+         item_name,
+         action_type,
+         employee_id,
+         urgency
+     )
+     VALUES ?`; // Using VALUES ? to insert multiple rows
+
+     try {
+      // Execute the insert query with multiple rows
+      const [result] = await pool.query(sqlInventoryUpdate, [values]);
+
+      // Check the result
+      console.log("Items were added successfully.");
+      console.log("Result:", result);
+      console.log(`Number of affected rows: ${result.affectedRows}`);
+      return result;
+    } catch (error) {
+        console.error("Error during inventory update:", error);
+        throw error;
+    }
+  }
+  // async function orderDB(items) {
+  //   console.log("in function orderDB");
+  //   console.log('items: ', items);
+  //   // Prepare the SQL query for updating multiple rows
+  //   // This example assumes you have a table `inventory` with columns `item_id` and `item_amount`
+  //   let sqlOrder = `
+  //    UPDATE Items
+  //       SET item_amount = CASE
+  //           WHEN item_amount - ? < 0 THEN 0
+  //           ELSE item_amount - ?
+  //       END
+  //       WHERE item_id = ?;
+  //   `;
+  //   await con.beginTransaction();
+
+  //   try {
+  //     for (const item of items) {
+  //         // Check if the row data is valid before updating
+  //         // You might want to validate here; for example, check if item.item_id exists
+
+  //         // Execute the update query
+  //         await con.query(sqlInventoryUpdate, [item.item_amount, item.item_id,item.item_amount]);
+  //     }
+
+  //     // Commit the transaction
+  //     await con.commit();
+  //     console.log("Items were updated successfully.");
+  //   } catch (error) {
+  //     // Rollback the transaction in case of an error
+  //     await con.rollback();
+  //     console.error("Error during inventory update:", error);
+  //     throw error;
+  //   }finally {
+  //     // Optional: release the connection if using a pool
+  //     con.end();
+  //   }
+  // }
+
+
+  async function orderDB(items) {
+    console.log("in function orderDB");
+    console.log('items: ', items);
+    let totalAffectedRows=0
+    const sqlOrder = `
+      UPDATE items
+      SET item_amount = CASE
+          WHEN item_amount - ? < 0 THEN 0
+          ELSE item_amount - ?
+      END
+      WHERE item_name = ?;
+    `;
+    console.log("item_order",items)
+    items.forEach((item, index) => {
+      console.log("item in for each",item)
+      const amount = parseInt(item.amount, 10);
+      const res=pool.query(sqlOrder,[amount,amount,item.item_name])
+      totalAffectedRows += res.affectedRows;
+
+    })
+    return({ affectedRows: totalAffectedRows }); // Resolve with affected rows
+
+  }
+  
+  
+  async function getEmployeeTaskDetailsDB(team) {
+    console.log("in function getEmployeeTaskDetailsDB");
+    console.log('team: ', team);
+    const sql = `SELECT * FROM journals where team="${team}" `;
+    const res =await pool.query(sql);
+    //   console.log(JSON.parse(res[0]));
+    console.log(res)
+    return res[0];
+  }
+  export{getEmployeeDB,updateEmployeeDB,registerCustomerDB,EmployeeInventoryUpdateDB,getEmployeeTaskDetailsDB,orderDB}

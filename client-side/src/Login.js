@@ -17,7 +17,7 @@ const LoginPage = () => {
         try {
             console.log('Sending login request:', { username, password });
 
-            const response = await axios.post('http://localhost:3000/logIn', {
+            const response = await axios.post('http://localhost:3001/logIn', {
                 user_name: username,
                 password: password
             }, {
@@ -40,8 +40,8 @@ const LoginPage = () => {
                         const id = response.data.user.user_id;
                         console.log("your id is " + id);
                         try {
-                            console.log('axios.get:', `http://localhost:3000/employee-details/${id}`);
-                            const response = await axios.get(`http://localhost:3000/employee-details/${id}`); // Replace with your actual endpoint
+                            console.log('axios.get:', `http://localhost:3001/employee-details/${id}`);
+                            const response = await axios.get(`http://localhost:3001/employee-details/${id}`); // Replace with your actual endpoint
                             console.log("i succeeded", response.data);
                             setCustomer_id(response.data.employee.employee_id);
                             console.log("response.data.employee.employee_id", response.data.employee.employee_id);
@@ -57,14 +57,32 @@ const LoginPage = () => {
                     console.log('Navigating to:', `/EmployeeArea/${response.data.user.user_id}?employee_id=${fetchedEmployeeId}`);
                     navigate(`/EmployeeArea/${response.data.user.user_id}?employee_id=${fetchedEmployeeId}`);
                 } else if (response.data.user.user_type === 'manager') {
-                    navigate(`/ManagerArea/${response.data.user.user_id}`);
+                    const fetchUserDetails = async () => {
+                        const id = response.data.user.user_id;
+                        console.log("your id is " + id);
+                        try {
+                            console.log('axios.get:', `http://localhost:3001/manager-details/${id}`);
+                            const response = await axios.get(`http://localhost:3001/manager-details/${id}`); // Replace with your actual endpoint
+                            console.log("i succeeded", response.data);
+                            setCustomer_id(response.data.manager.manager_id);
+                            console.log("response.data.manager.manager_id", response.data.manager.manager_id);
+                            localStorage.setItem(response.data.manager.manager_id, JSON.stringify(response.data.manager));
+                            return response.data.manager.employee_id;
+                        } catch (error) {
+                            console.error('Error fetching user details:', error);
+                        }
+                    };
+                    const fetchedManagerId = await fetchUserDetails();
+                    console.log("fetch succeeded", fetchedManagerId);
+                    console.log('Navigating to:', `/EmployeeArea/${response.data.user.user_id}?manager_id=${fetchedManagerId}`);
+                    navigate(`/ManagerArea/${response.data.user.user_id}?manager_id=${fetchedManagerId}`);
                 } else {
                     const fetchUserDetails = async () => {
                         const id = response.data.user.user_id;
                         console.log("your id is " + id);
                         try {
-                            console.log('axios.get:', `http://localhost:3000/customer-details/${id}`);
-                            const response = await axios.get(`http://localhost:3000/customer-details/${id}`); // Replace with your actual endpoint
+                            console.log('axios.get:', `http://localhost:3001/customer-details/${id}`);
+                            const response = await axios.get(`http://localhost:3001/customer-details/${id}`); // Replace with your actual endpoint
                             console.log("i succeeded", response.data);
                             setCustomer_id(response.data.customer.customer_id);
                             console.log("response.data.customer.customer_id", response.data.customer.customer_id);

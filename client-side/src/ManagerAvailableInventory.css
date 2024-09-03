@@ -1,5 +1,5 @@
 .managerInventory {
-    background-image: url('./photos/pic.jpg'); /* Ensure this is the correct relative path */
+    background-image: url('./photos/pic.jpg');
     background-size: cover;
     background-position: center;
     padding: 1px;
@@ -9,30 +9,32 @@
     position: relative;
 }
 
-h2 { /* Assuming your heading is h2 instead of h27 */
+h2 {
     font-size: 40px;
     color: darkblue;
     font-family: Calibri, sans-serif;
     font-weight: bold;
-    margin-left: 920px; /* Adjust margin-left as needed */
-    margin-bottom: 50px; /* Added margin for spacing */
+    margin-left: 920px;
+    margin-bottom: 50px;
     margin-top: 50px;
 }
+
 .text {
     align-items: center;
     text-align: center;
     margin-top: 30px;
     font-size: 25px;
 }
+
 .OfficeDepot {
     width: 120px;
     height: 100px;
-    order: 2; /* Keeps the logo on the right */
+    order: 2;
     margin-top: 10px;
 }
 
 table {
-    width: 60%; /* Reduce overall table width if needed */
+    width: 60%;
     border-collapse: collapse;
     margin-left: 500px;
     font-size: 20px;
@@ -42,50 +44,20 @@ th, td {
     padding: 8px;
     border: 3px solid #ddd;
     text-align: center;
-}
-
-/* Example of setting specific widths for each column */
-th:nth-child(1), td:nth-child(1) { /* Item Name column */
-    width: 4%;
-}
-
-th:nth-child(2), td:nth-child(2) { /* Quantity column */
-    width: 4%;
-}
-
-th:nth-child(3), td:nth-child(3) { /* Unit Price column */
-    width: 4%;
-}
-
-th:nth-child(4), td:nth-child(4) { /* Total Cost column */
-    width: 4%;
-}
-
-th, td {
-    text-align: center;
-    padding: 8px;
-    border: 3px solid #ddd;
-
-
+    width: 20%; /* Apply the same width to all columns */
 }
 
 th {
     background-color: #daedf5;
-    font-weight: bold; /* Titles in bold */
+    font-weight: bold;
 }
 
-/* Assuming your sidebar class is .ManagerSideBar */
 .ManagerSideBar {
-    width: 25%; /* Reduce sidebar width */
-    position: absolute; /* Absolute positioning */
-    top: 80px; /* Adjust top position based on header height */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally using transform */
-    /* Additional styles for sidebar (optional) */
-    /* background-color: #f1f1f1; */
-    /* padding: 20px; */
-    /* border: 1px solid #ccc; */
-    /* border-radius: 5px; */
+    width: 25%;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #eventForm label {

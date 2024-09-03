@@ -2,28 +2,81 @@ import React, { useState } from 'react';
 import './EmployeeInventoryUpdate.css';
 import Header from './header';
 import EmployeeSideBar from './EmployeeSideBar';
-
+import { useParams ,useLocation} from 'react-router-dom';
+import axios from 'axios';
 const EmployeeInventoryUpdate = () => {
+    const today = new Date();
+    console.log(today)
+    const formattedDate = today.toISOString().split('T')[0];
+    console.log(formattedDate)
+    const {id}=useParams();
+    const location = useLocation(); // Access the location object
+    const [message, setMessage] = useState('');
+
+    // Parse the query parameters
+    const queryParams = new URLSearchParams(location.search);
+    const employee_id = queryParams.get('employee_id'); 
     const [items, setItems] = useState([{
-        item: 'item1',
-        action: 'update',
-        date: '',
-        priority: 'low'
+        item_name: 'Pencils',
+        action_type: 'Update on exploitation',
+        urgency: 'Low',
+        amount: 0,
+        date: formattedDate,
+        employee_id: employee_id
     }]);
 
     const handleAddRow = () => {
-        const newRow = { item: 'item1', action: 'update', date: '', priority: 'low' };
+        const newRow = {      
+            item_name: 'Pencils',
+            action_type: 'Update on exploitation',
+            urgency: 'Low',
+            amount: 0,
+            date: formattedDate,
+            employee_id: employee_id
+        };
         setItems([...items, newRow]);
     };
 
-    const handleInputChange = (index, field, value) => {
-        const newItems = [...items];
-        newItems[index][field] = value;
-        setItems(newItems);
-    };
+    // const handleInputChange = (index, field, value) => {
+    //     const newItems = [...items];
+    //     newItems[index][field] = value;
+    //     setItems(newItems);
+    // };
 
-    const handleSubmit = (event) => {
+    const handleSubmit =async (event) => {
         event.preventDefault();
+        try {
+            console.log("items list: ",items)
+            console.log(`http://localhost:3001/EmployeeInventoryUpdate/${employee_id}`)
+            const response = await axios.put(`http://localhost:3001/EmployeeInventoryUpdate/${employee_id}`, items, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log("Employee Inventory Update")
+            const { message } = response.data;
+            setMessage(message);
+            // setError('')
+        } catch (error) {
+            console.error('Error during update:', error);
+            // setError('Server error');
+        }
+        try {
+            console.log("items order: ",items)
+            console.log(`http://localhost:3001/order/`)
+            const response = await axios.put(`http://localhost:3001/order/`, items, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log("order sent")
+            const { message } = response.data;
+            setMessage(message);
+            // setError('')
+        } catch (error) {
+            console.error('Error during update:', error);
+            // setError('Server error');
+        }
         alert('Form submitted');
     };
 
@@ -48,7 +101,15 @@ const EmployeeInventoryUpdate = () => {
                         {items.map((item, index) => (
                             <tr key={index}>
                                 <td>
-                                    <select name="item" value={item.item} onChange={e => handleInputChange(index, 'item', e.target.value)}>
+                                    <select name="item" value={item.item_name} onChange={(e) => 
+                                            setItems(
+                                                items.map((itm, idx) => 
+                                                    idx === index 
+                                                        ? { ...itm, item_name: e.target.value } 
+                                                        : itm
+                                                )
+                                            )
+                                        }>
                                         <option value="item1">Pencils</option>
                                         <option value="item2">Pens</option>
                                         <option value="item3">Computer screens</option>
@@ -60,20 +121,52 @@ const EmployeeInventoryUpdate = () => {
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="action" value={item.action} onChange={e => handleInputChange(index, 'action', e.target.value)}>
+                                    <select name="action" value={item.action_type} onChange={(e) => 
+                                            setItems(
+                                                items.map((itm, idx) => 
+                                                    idx === index 
+                                                        ? { ...itm, action_type: e.target.value } 
+                                                        : itm
+                                                )
+                                            )
+                                        }>
                                         <option value="update">Update on exploitation</option>
                                         <option value="armor">Request to armor</option>
                                         <option value="out of stock">Product out of stock</option>
                                     </select>
                                 </td>
                                 <td>
-                                    <input type="date" name="date" value={item.date} onChange={e => handleInputChange(index, 'date', e.target.value)} />
+                                    <input type="date" name="date" value={item.date} onChange={(e) => 
+                                            setItems(
+                                                items.map((itm, idx) => 
+                                                    idx === index 
+                                                        ? { ...itm, date: e.target.value } 
+                                                        : itm
+                                                )
+                                            )
+                                        }/>
                                 </td>
                                 <td>
-                                    <input type="number" name="quantity" value={item.quantity} onChange={e => handleInputChange(index, 'quantity', e.target.value)} />
+                                    <input type="number" name="quantity" value={item.amount}onChange={(e) => 
+                                            setItems(
+                                                items.map((itm, idx) => 
+                                                    idx === index 
+                                                        ? { ...itm, amount: e.target.value } 
+                                                        : itm
+                                                )
+                                            )
+                                        }/>
                                 </td>
                                 <td>
-                                    <select name="priority" value={item.priority} onChange={e => handleInputChange(index, 'priority', e.target.value)}>
+                                    <select name="priority" value={item.urgency} onChange={(e) => 
+                                            setItems(
+                                                items.map((itm, idx) => 
+                                                    idx === index 
+                                                        ? { ...itm, urgency: e.target.value } 
+                                                        : itm
+                                                )
+                                            )
+                                        }>
                                         <option value="low">Low</option>
                                         <option value="medium">Medium</option>
                                         <option value="high">High</option>

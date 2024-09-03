@@ -16,7 +16,7 @@ const EmployeeArea = () => {
             // const id = 3;
             console.log("your ikd is "+id)
             try {
-                const response = await axios.get(`http://localhost:3000/employee-details/${id}`); // Replace with your actual endpoint
+                const response = await axios.get(`http://localhost:3001/employee-details/${id}`); // Replace with your actual endpoint
                 console.log(response.data)
                 localStorage.setItem(response.data.employee.employee_id, JSON.stringify(response.data.employee));
             } catch (error) {

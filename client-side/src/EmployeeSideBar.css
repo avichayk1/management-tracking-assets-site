@@ -67,7 +67,10 @@
     border: 1px solid #ccc; /* Subtle border for the search bar */
     border-radius: 5px;
 }
-
+.Bell {
+    width: 80px;
+    height: 80px;
+}
 /* Main content area */
 .main-content {
     margin-left: 250px; /* Offset by the width of the sidebar */

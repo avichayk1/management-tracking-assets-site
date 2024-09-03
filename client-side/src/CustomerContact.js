@@ -30,11 +30,11 @@ const CustomerContact = () => {
         console.log("I am in CustomerContact");
         // const { id } = useParams();
         console.log("ID from params: " + id);
-        console.log(`http://localhost:3000/CustomerContact/${customer_id}`);
+        console.log(`http://localhost:3001/CustomerContact/${customer_id}`);
         
         const fetchAssets = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/customer-contact/${customer_id}`);
+                const response = await axios.get(`http://localhost:3001/customer-contact/${customer_id}`);
                 console.log(response.data);
                 const contact  = response.data.customer_contact ? [response.data.customer_contact[0]] : [];
                 console.log("contact", contact);
