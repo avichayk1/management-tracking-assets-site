@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import { useParams,useLocation } from 'react-router-dom';
+import { useParams,useLocation,useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from './header'; // Ensure correct import path
 import CustomerSideBar from './CustomerSideBar'; // Ensure correct import path
@@ -13,7 +13,8 @@ const CustomerSurvey = () => {
     const [opinion,setOpinion]=useState({})
     const {id}=useParams();
     const location = useLocation(); // Access the location object
-    
+    const navigate = useNavigate();
+
     // Parse the query parameters
     const queryParams = new URLSearchParams(location.search);
     const customer_id = queryParams.get('customer_id'); 
@@ -57,6 +58,7 @@ const CustomerSurvey = () => {
             });
             if (response.status === 200) {
                 setMessage('הסקר התקבל');
+                navigate(`/CustomerArea/${id}?customer_id=${customer_id}`)
             } else {
                 setMessage('שגיאה בשליחת הסקר');
             }

@@ -193,4 +193,4 @@ WHERE
     console.log(res)
     return res[0];
   }
-  export{getManagerDB,addTaskDB,registerCustomerDB,addSurveyDB,getItemsDB,updatedItemDB}
+  export{getManagerDB,addTaskDB,registerCustomerDB,addSurveyDB,getItemsDB,updatedItemDB,getAllTaskDetailsDB}

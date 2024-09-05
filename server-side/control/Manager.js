@@ -125,9 +125,9 @@ async function registerCustomer(req, res) {
       res.status(500).send({ error: 'Server error' });
   }
 }
-async function getEmployeeTaskDetails(req, res) {
+async function getAllTaskDetails(req, res) {
   try {
-    console.log("i am in getEmployeeTaskDetails func");
+    console.log("i am in getAllTaskDetails func");
     console.log(req.params.id);
 
 
@@ -144,4 +144,4 @@ async function getEmployeeTaskDetails(req, res) {
     return res.status(500).send({ error: "An error occurred while fetching task details." });
   }
 }
-export{getManagerDetails,addTask,registerCustomer,addSurvey,getItems,updateItemAmount}
+export{getManagerDetails,addTask,registerCustomer,addSurvey,getItems,updateItemAmount,getAllTaskDetails}

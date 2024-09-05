@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Header from './header'; // Adjust the import path as needed
 import ManagerSideBar from './ManagerSideBar'; // Adjust the import path as needed
 import Calendar from 'react-calendar';
@@ -23,6 +23,9 @@ const ManagerCalendar = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [selectedTask, setSelectedTask] = useState(null);
     const [message, setMessage]=useState('')
+    const [tasks, setTasks] = useState([]);
+    const [date, setDate] = useState(new Date());
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -40,26 +43,32 @@ const ManagerCalendar = () => {
         const task = events.find(event => event.date === date.toISOString().split('T')[0]);
         setSelectedTask(task);
     };
-    // useEffect(() => {
-    //     console.log("heeeeeeeeeeeey")
-    //     const fetchEmployeeTasksDetails = async () => {
-    //         // const id = 3;
-    //         console.log("your ikd is "+id)
-    //         try {
-    //             const response = await axios.get(`http://localhost:3001/employee-all-task-details/${id}`); // Replace with your actual endpoint
-    //             console.log(response.data)
-    //                        // Flatten the tasks and normalize the date format
-    //         const flattenedTasks = response.data.tasks.flat().map(task => ({
-    //             ...task,
-    //             date: task.date_.split('T')[0] // Extract just the YYYY-MM-DD part
-    //         }));
-    //             setTasks(flattenedTasks)
-    //         } catch (error) {
-    //             console.error('Error fetching user details:', error);
-    //         }
-    //     };
-    //     fetchEmployeeTasksDetails();
-    // }, []);
+    const onDateChange = (newDate) => {
+        setDate(newDate);
+    };
+    const closeTaskDetails = () => {
+        setSelectedTask(null);
+    };
+    useEffect(() => {
+        console.log("heeeeeeeeeeeey")
+        const fetchEmployeeTasksDetails = async () => {
+            // const id = 3;
+            console.log("your ikd is "+id)
+            try {
+                const response = await axios.get(`http://localhost:3001/manager-all-task-details/${id}`); // Replace with your actual endpoint
+                console.log(response.data)
+                           // Flatten the tasks and normalize the date format
+            const flattenedTasks = response.data.tasks.flat().map(task => ({
+                ...task,
+                date: task.date_.split('T')[0] // Extract just the YYYY-MM-DD part
+            }));
+                setTasks(flattenedTasks)
+            } catch (error) {
+                console.error('Error fetching user details:', error);
+            }
+        };
+        fetchEmployeeTasksDetails();
+    }, []);
     const add_event = async (e) => {
         e.preventDefault();
         console.log("i am in add_event func")
@@ -86,6 +95,31 @@ const ManagerCalendar = () => {
         }
 
     }
+    
+    const renderTasksForDate = (date) => {
+        const tasksForDate = tasks.filter(task =>
+            task.date === date.toISOString().split('T')[0] 
+            // ||
+            // (task.start && new Date(task.start) <= date && new Date(task.end) >= date)
+        );
+
+        if (tasksForDate.length > 0) {
+            return (
+                <div className="tasks-on-date">
+                    {tasksForDate.map(task => (
+                        <div
+                            key={task.name_}
+                            className="task"
+                            onClick={() => setSelectedTask(task)}
+                        >
+                            <strong>Team {task.team}</strong>: {task.name_}
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+        return null;
+    };
     return (
         <div className="managerCalendar">
             <Header />
@@ -120,16 +154,17 @@ const ManagerCalendar = () => {
             <div className="smallCalendar">
                 <Calendar
                     locale="en-US" // Set the locale to English
-                    onChange={setSelectedDate}
-                    value={selectedDate}
-                    onClickDay={handleDayClick}
+                    onChange={onDateChange}
+                    value={date}
+                    tileContent={({ date }) => renderTasksForDate(date)}
+
                 />
                 {selectedTask && (
                     <div className="task-modal">
                         <div className="task-modal-content">
-                            <h2>Task Details</h2>
-                            <p>{selectedTask.title}</p>
-                            <button onClick={() => setSelectedTask(null)}>Close</button>
+                        <h1>{selectedTask.team}:{selectedTask.title}</h1>
+                        <p>Date: {selectedTask.date || `${selectedTask.start} to ${selectedTask.end}`}</p>
+                        <button onClick={closeTaskDetails}>Close</button>
                         </div>
                     </div>
                 )}

@@ -110,14 +110,17 @@ const EmployeeInventoryUpdate = () => {
                                                 )
                                             )
                                         }>
-                                        <option value="item1">Pencils</option>
-                                        <option value="item2">Pens</option>
-                                        <option value="item3">Computer screens</option>
-                                        <option value="item4">Printer toner</option>
-                                        <option value="item5">A4 pages</option>
-                                        <option value="item6">Writing blocks</option>
-                                        <option value="item7">Notebooks</option>
-                                        <option value="item8">Network cable</option>
+                                        <option value="Desktop Computer">Desktop Computer</option>
+                                        <option value="Mouse">Mouse</option>    
+                                        <option value="Pencils">Pencils</option>
+                                        <option value="Pens">Pens</option>
+                                        <option value="Computer Monitors">Computer Monitors</option>
+                                        <option value="Printer Toner">Printer Toner</option>
+                                        <option value="Printer">Printer</option>
+                                        <option value="A4 paper">A4 paper</option>
+                                        <option value="Notepads">Notepads</option>
+                                        <option value="Ethernet Cables">Ethernet Cables</option>
+                                        <option value="Highlighters">Highlighters</option>
                                     </select>
                                 </td>
                                 <td>
