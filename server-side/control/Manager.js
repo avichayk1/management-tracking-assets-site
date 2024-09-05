@@ -1,7 +1,7 @@
 import {
     getEmployeeDB,updateEmployeeDB,registerCustomerDB
   } from '../models/employeeDB.js';
-import {getManagerDB,addTaskDB,addSurveyDB,getItemsDB,updatedItemDB} from '../models/managerDB.js'
+import {getManagerDB,addTaskDB,addSurveyDB,getItemsDB,updatedItemDB,getAllTaskDetailsDB} from '../models/managerDB.js'
 async function getManagerDetails(req, res){
     console.log("i am in getManagerDetails")
     console.log(req.params.id)
@@ -125,5 +125,23 @@ async function registerCustomer(req, res) {
       res.status(500).send({ error: 'Server error' });
   }
 }
+async function getEmployeeTaskDetails(req, res) {
+  try {
+    console.log("i am in getEmployeeTaskDetails func");
+    console.log(req.params.id);
 
+
+    const tasks = await getAllTaskDetailsDB();
+    
+    if (tasks[0].length === 0) {
+      return res.status(401).send({ error: "No tasks found for this employee." });
+    }
+
+    return res.status(200).json({ tasks });
+
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send({ error: "An error occurred while fetching task details." });
+  }
+}
 export{getManagerDetails,addTask,registerCustomer,addSurvey,getItems,updateItemAmount}

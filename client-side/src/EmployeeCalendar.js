@@ -63,7 +63,7 @@ const EmployeeCalendar = () => {
             // const id = 3;
             console.log("your ikd is "+id)
             try {
-                const response = await axios.get(`http://localhost:3001/employee-task-details/${employee_id}`); // Replace with your actual endpoint
+                const response = await axios.get(`http://localhost:3001/employee-task-details/${id}`); // Replace with your actual endpoint
                 console.log(response.data)
                            // Flatten the tasks and normalize the date format
             const flattenedTasks = response.data.tasks.flat().map(task => ({

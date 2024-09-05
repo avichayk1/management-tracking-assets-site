@@ -3,7 +3,7 @@ import { getUserByPassword } from '../control/User.js';
 import {getCustomerDetails,updateCustomer,getCustomerAssets,getCustomerContact,getCustomerOpinions,getCustomerOpinionsByid,updateCustomerOpinion} from '../control/Customer.js'
 import { checkReqLogInData } from '../middleware/middleware.js';
 import{getEmployeeDetails,updateEmployee,registerCustomer,EmployeeInventoryUpdate,getEmployeeTaskDetails,order} from '../control/Employee.js';
-import {getManagerDetails,addTask,addSurvey,getItems,updateItemAmount} from '../control/Manager.js'
+import {getManagerDetails,addTask,addSurvey,getItems,updateItemAmount,getAllTaskDetails} from '../control/Manager.js'
 const router = express.Router();
 
 router.use(express.json());
@@ -15,6 +15,7 @@ router.get('/customer-contact/:customerId',getCustomerContact)
 router.get(`/employee-details/:id`,getEmployeeDetails);
 router.get(`/manager-details/:id`,getManagerDetails);
 router.get(`/employee-task-details/:id`, getEmployeeTaskDetails )
+router.get(`/manager-all-task-details/:id`,getAllTaskDetails)
 router.get(`/customer-opinions/:customerId`,getCustomerOpinions)
 router.get(`/customer-opinions-by-opinion_id/:opinion_id`,getCustomerOpinionsByid)
 router.get('/items/',getItems)

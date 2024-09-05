@@ -40,7 +40,26 @@ const ManagerCalendar = () => {
         const task = events.find(event => event.date === date.toISOString().split('T')[0]);
         setSelectedTask(task);
     };
-
+    // useEffect(() => {
+    //     console.log("heeeeeeeeeeeey")
+    //     const fetchEmployeeTasksDetails = async () => {
+    //         // const id = 3;
+    //         console.log("your ikd is "+id)
+    //         try {
+    //             const response = await axios.get(`http://localhost:3001/employee-all-task-details/${id}`); // Replace with your actual endpoint
+    //             console.log(response.data)
+    //                        // Flatten the tasks and normalize the date format
+    //         const flattenedTasks = response.data.tasks.flat().map(task => ({
+    //             ...task,
+    //             date: task.date_.split('T')[0] // Extract just the YYYY-MM-DD part
+    //         }));
+    //             setTasks(flattenedTasks)
+    //         } catch (error) {
+    //             console.error('Error fetching user details:', error);
+    //         }
+    //     };
+    //     fetchEmployeeTasksDetails();
+    // }, []);
     const add_event = async (e) => {
         e.preventDefault();
         console.log("i am in add_event func")

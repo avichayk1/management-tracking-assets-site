@@ -184,4 +184,13 @@ WHERE
     console.log(res)
     return res;
   }
+
+  async function getAllTaskDetailsDB() {
+    console.log("in function getEmployeeTaskDetailsDB");
+    const sql = `SELECT * FROM journals  `;
+    const res =await pool.query(sql);
+    //   console.log(JSON.parse(res[0]));
+    console.log(res)
+    return res[0];
+  }
   export{getManagerDB,addTaskDB,registerCustomerDB,addSurveyDB,getItemsDB,updatedItemDB}

@@ -1,94 +1,71 @@
 import React, { useState } from 'react';
-import './EmployeeInventoryUpdate.css';
-import Header from './header';
+import Header from "./header";
 import EmployeeSideBar from './EmployeeSideBar';
+import './EmployeeContact.css';
 
-const EmployeeInventoryUpdate = () => {
-    const [items, setItems] = useState([{
-        item: 'item1',
-        action: 'update',
-        date: '',
-        priority: 'low'
-    }]);
+const AccordionItem = ({ question, answer }) => {
+    const [isOpen, setIsOpen] = useState(false);
 
-    const handleAddRow = () => {
-        const newRow = { item: 'item1', action: 'update', date: '', priority: 'low' };
-        setItems([...items, newRow]);
+    const toggle = () => {
+        setIsOpen(!isOpen);
     };
-
-    const handleInputChange = (index, field, value) => {
-        const newItems = [...items];
-        newItems[index][field] = value;
-        setItems(newItems);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        alert('Form submitted');
-    };
+    return (
+        <div className="accordion-item2">
+            <button className="accordion-button" onClick={toggle}>
+                {question}
+            </button>
+            {isOpen && <div className="accordion-content2">{answer}</div>}
+        </div>
+    );
+};
+const EmployeeContact = () => {
+    const faqData = [
+        {
+            question: "Asset Management Department",
+            answer: "AssetManagement@move.co.il, 03-7461940"
+        },
+        {
+            question: "Maintenance Department",
+            answer: "Maintenance@move.co.il, 03-7461941"
+        },
+        {
+            question: "Finance Department",
+            answer: "Finance@move.co.il, 03-7461942"
+        },
+        {
+            question: "Rental department",
+            answer: "Rental@move.co.il, 03-7461943"
+        },
+        {
+            question: "Legal Department",
+            answer: "Legal@move.co.il, 03-7461944"
+        },
+        {
+            question: "Human Resources Department",
+            answer: "HR@move.co.il, 03-7461945"
+        },
+        {
+            question: "IT and HelpDesk Department",
+            answer: "IT@move.co.il, 03-7461946"
+        },
+        {
+            question: "Customer relations Department",
+            answer: "CustomerRelations@move.co.il, 03-7461947"
+        },
+    ];
 
     return (
-        <div className="EmployeeInventoryUpdate2">
-            <Header />
-            <EmployeeSideBar />
-            <div className="InventoryForm2">
-                <h90>Inventory Update Request Form</h90>
-                <form onSubmit={handleSubmit} className="form2">
-                    <table className="styled-table2">
-                        <thead>
-                        <tr>
-                            <th>Item Name</th>
-                            <th>Action Type</th>
-                            <th>Date</th>
-                            <th>Quantity</th>
-                            <th>Urgency</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {items.map((item, index) => (
-                            <tr key={index}>
-                                <td>
-                                    <select name="item" value={item.item} onChange={e => handleInputChange(index, 'item', e.target.value)}>
-                                        <option value="item1">Pencils</option>
-                                        <option value="item2">Pens</option>
-                                        <option value="item3">Computer screens</option>
-                                        <option value="item4">Printer toner</option>
-                                        <option value="item5">A4 pages</option>
-                                        <option value="item6">Writing blocks</option>
-                                        <option value="item7">Notebooks</option>
-                                        <option value="item8">Network cable</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select name="action" value={item.action} onChange={e => handleInputChange(index, 'action', e.target.value)}>
-                                        <option value="update">Update on exploitation</option>
-                                        <option value="armor">Request to armor</option>
-                                        <option value="out of stock">Product out of stock</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input type="date" name="date" value={item.date} onChange={e => handleInputChange(index, 'date', e.target.value)} />
-                                </td>
-                                <td>
-                                    <input type="number" name="quantity" value={item.quantity} onChange={e => handleInputChange(index, 'quantity', e.target.value)} />
-                                </td>
-                                <td>
-                                    <select name="priority" value={item.priority} onChange={e => handleInputChange(index, 'priority', e.target.value)}>
-                                        <option value="low">Low</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="high">High</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        ))}
-                        </tbody>
-                    </table>
-                    <button  className={"AddRowBtn"} type="button" onClick={handleAddRow}>Add Another Row</button>
-                    <input  className={"AddRowBtn"} type="submit" value="Submit Request" />
-                </form>
+        <div className="accordion2">
+            <div className="background6">
+                <Header/>
+                <EmployeeSideBar />
+                <h1>Interested in contacting another department?<br />
+                    Below is the corporate contact information for your use.</h1>
+                    {faqData.map((faq, index) => (
+                    <AccordionItem key={index} question={faq.question} answer={faq.answer} />
+                ))}
             </div>
         </div>
     );
 };
-
-export default EmployeeInventoryUpdate;
+export default EmployeeContact;

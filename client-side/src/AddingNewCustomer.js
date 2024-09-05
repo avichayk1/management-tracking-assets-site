@@ -60,8 +60,8 @@ const AddingNewCustomer = () => {
         };
         console.log("updatedData ", updatedData)
         try {
-            console.log(`http://localhost:3000/registerCustomer/${storedEmployee.employee_id}`)
-            const response = await axios.put(`http://localhost:3000/registerCustomer/${storedEmployee.employee_id}`, updatedData, {
+            console.log(`http://localhost:3001/registerCustomer/${storedEmployee.employee_id}`)
+            const response = await axios.put(`http://localhost:3001/registerCustomer/${storedEmployee.employee_id}`, updatedData, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
