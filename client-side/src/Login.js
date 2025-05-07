@@ -4,11 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import Header from "./header";
 import Footer from "./footer";
 import './Login.css';
+import { useUser } from './UserContext'; // שים את הנתיב הנכון בהתאם לפרויקט שלך
+import SideBar from './sideBar';
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [customer_id, setCustomer_id] = useState('');
+    const { setIsLogin, setUserType } = useUser();
+
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -28,13 +32,15 @@ const LoginPage = () => {
             console.log(response.data);
 
             if (response.data.user) {
+                setIsLogin(true); // המשתמש מחובר
+                setUserType(response.data.user.user_type); 
                 const userWithoutPassword = {
                     user_id: response.data.user.user_id,
                     user_name: response.data.user.user_name,
                     user_type: response.data.user.user_type
                 };
-                localStorage.setItem(response.data.user.user_name, JSON.stringify(userWithoutPassword)); // Save customerId to localStorage
 
+                localStorage.setItem(response.data.user.user_name, JSON.stringify(userWithoutPassword)); // Save customerId to localStorage
                 if (response.data.user.user_type === 'employee') {
                     const fetchUserDetails = async () => {
                         const id = response.data.user.user_id;
@@ -110,24 +116,22 @@ const LoginPage = () => {
 
     return (
         <div className="main-container">
-            <Header />
+            <SideBar />
             <div className="body">
-                <div className="grey">
-                    <hr className="Login" />
-                    <h589>Login to the personal area:</h589>
-                    <form onSubmit={handleLogin}>
-                        <label>Username:
-                            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-                        </label>
-                        <br />
-                        <label>Password:
-                            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        </label>
-                        <br />
-                        <button className="btn_enter" type="submit">Login</button>
-                    </form>
-                    {error && <div className="error-message">{error}</div>}
-                </div>
+                <h1>Login to the personal area:</h1>
+                
+                <form onSubmit={handleLogin}>
+                    <label>Username:
+                        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                    </label>
+                    <br />
+                    <label>Password:
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    </label>
+                    <br />
+                    <button className="btn_enter" type="submit">Login</button>
+                </form>
+                {error && <div className="error-message">{error}</div>}
             </div>
         </div>
     );

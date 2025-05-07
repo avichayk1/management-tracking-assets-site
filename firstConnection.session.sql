@@ -1,3 +1,4 @@
+use assets_management
 
 --create 2
 CREATE TABLE Customers (

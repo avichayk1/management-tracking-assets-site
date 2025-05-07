@@ -1,11 +1,11 @@
 import React, { useState,useEffect } from 'react';
-import Header from './header'; // Adjust the import path as needed
 import ManagerSideBar from './ManagerSideBar'; // Adjust the import path as needed
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './ManagerCalendar.css';
 import axios from 'axios';
 import { useParams ,useLocation} from 'react-router-dom';
+import SideBar from './sideBar';
 const ManagerCalendar = () => {
     const {id}=useParams();
 
@@ -122,8 +122,8 @@ const ManagerCalendar = () => {
     };
     return (
         <div className="managerCalendar">
-            <Header />
-            <ManagerSideBar />
+            {/* <Header /> */}
+            <SideBar />
             <form id="eventForm" onSubmit={handleSubmit}>
                 <label htmlFor="eventName">Event Name:</label><br />
                 <input

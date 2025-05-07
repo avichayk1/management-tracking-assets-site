@@ -5,6 +5,8 @@ import Footer from "./footer";
 import CustomerSideBar from "./CustomerSideBar";
 import axios from 'axios';
 import { useParams ,useLocation } from 'react-router-dom';
+import SideBar from "./sideBar";
+
 const CustomerContact = () => {
     const [formData, setFormData] = useState({
         // fullName: '',
@@ -102,51 +104,52 @@ const CustomerContact = () => {
 
     return (
         <div className="customer-contact">
-            <Header />
-            <h3>Please fill the following form:</h3>
-
-            <CustomerSideBar />
-
-            <div className="form">
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        Full name:
-                        <input type="text" name="fullName" value={formData.full_name} onChange={handleChange} />
-                    </label>
-                    <label>
-                        Email:
-                        <input type="email" name="email" value={formData.customer_mail} onChange={handleChange} />
-                    </label>
-                    <label>
-                        Telephone:
-                        <input type="text" name="phone" value={formData.customer_phone} onChange={handleChange} />
-                    </label>
-                    <label>
-                        Message:
-                        <textarea name="message" value={formData.message} onChange={handleChange} />
-                    </label>
-                    <label>
-                        Request for a phone call:
-                        <input type="checkbox" name="requestCall" checked={formData.requestCall} onChange={handleChange} />
-                    </label>
-                    <label>
-                        Request to update a bid:
-                        <input type="checkbox" name="requestBid" checked={formData.requestBid} onChange={handleChange} />
-                    </label>
-                    <label>
-                        Request for a new financial report:
-                        <input type="checkbox" name="requestReport" checked={formData.requestReport} onChange={handleChange} />
-                    </label>
-                    <label>
-                        Upload a file:
-                        <input type="file" name="file" onChange={handleChange} />
-                    </label>
-                    <button type="submit">Send</button>
-                </form>
+            {/* <Header /> */}
+            <SideBar />
+            <div className='main'>
+                <h1>Please fill the following form:</h1>
+                <div className="form">
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            Full name:
+                            <input type="text" name="fullName" value={formData.full_name} onChange={handleChange} />
+                        </label>
+                        <label>
+                            Email:
+                            <input type="email" name="email" value={formData.customer_mail} onChange={handleChange} />
+                        </label>
+                        <label>
+                            Telephone:
+                            <input type="text" name="phone" value={formData.customer_phone} onChange={handleChange} />
+                        </label>
+                        <label>
+                            Message:
+                            <textarea name="message" value={formData.message} onChange={handleChange} />
+                        </label>
+                        <label>
+                            Request for a phone call:
+                            <input type="checkbox" name="requestCall" checked={formData.requestCall} onChange={handleChange} />
+                        </label>
+                        <label>
+                            Request to update a bid:
+                            <input type="checkbox" name="requestBid" checked={formData.requestBid} onChange={handleChange} />
+                        </label>
+                        <label>
+                            Request for a new financial report:
+                            <input type="checkbox" name="requestReport" checked={formData.requestReport} onChange={handleChange} />
+                        </label>
+                        <label>
+                            Upload a file:
+                            <input type="file" name="file" onChange={handleChange} />
+                        </label>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+                <div className="message">
+                    {submitSuccess && <p>The request has been sent successfully.</p>}
+                </div>
             </div>
-            <div className="message">
-                {submitSuccess && <p>The request has been sent successfully.</p>}
-            </div>
+          
             <Footer />
         </div>
     );

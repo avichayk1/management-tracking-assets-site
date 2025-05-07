@@ -1,10 +1,10 @@
 import React from 'react';
 import "./ManagerArea.css";
-import Header from "./header";
+// import Header from "./header";
 import Footer from "./footer";
 import ManagerSideBar from "./ManagerSideBar";
 import { useParams ,useLocation} from 'react-router-dom';
-
+import SideBar from './sideBar';
 const ManagerArea = () => {
     console.log("i am in ManagerArea")
     const {id}=useParams();
@@ -18,8 +18,8 @@ const ManagerArea = () => {
    
     return (
         <div className="ManagerAreabackground"> {/* Added a class to use for setting the background */}
-            <Header/>
-            <ManagerSideBar/>
+            {/* <Header/> */}
+            <SideBar/>
             <div className="Text"> {/* Corrected the class assignment to className */}
                 <h26>Welcome to your personal area!</h26>
                 <p>We are happy to see you again.<br />

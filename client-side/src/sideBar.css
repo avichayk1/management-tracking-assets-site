@@ -1,0 +1,80 @@
+.link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 500; /* הופך את הלינק לבולט יותר */
+    transition: all 0.3s ease-in-out; /* מעבר חלק עבור כל שינוי */
+  }
+  
+  .logo {
+    width: 120px;
+    height: auto;
+    margin-left: 20px;
+    
+  }
+  
+  .alerts-drawer {
+    width: 250px;
+  }
+  
+  .alert-item {
+    padding: 8px 16px;
+    font-size: 1.2rem;
+  }
+  
+  /* התאמה לעיצוב Drawer צד שמאל */
+  .left-drawer .MuiDrawer-paper {
+    background-color: var(--mui-primary-main); /* יירש את הצבע העיקרי מהנושא */
+    position: fixed;
+    top: 130px;
+    height: calc(100% - 130px);
+    overflow: auto;
+    
+  }
+  
+  .section-divider {
+    border-bottom: 1px solid #555; /* צבע חוצץ */
+    margin: 20px 0;
+    opacity: 0.5; /* נותן מראה קליל יותר */
+
+  }
+  
+  
+  /* AppBar קישורים בהדר */
+  .header-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .header-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2rem;
+    margin-right: 4px;
+  }
+  
+  /* כפתור פעמון */
+  .bell-icon {
+    width: 72px;
+    height: 72px;
+  }
+  .link:hover {
+    color: #f3f1f0; /* צבע טקסט אחר במעבר עכבר */
+    background-color: #228bb5; /* רקע טיפה יותר כהה */
+    border-radius: 10px;
+    text-decoration: underline; /* קו תחתון */
+    transition: 0.3s; /* מעבר חלק ואנימציה */
+    transform: scale(1.05); /* הגברת גודל במעבר */
+
+  }
+  .MuiToolbar-root {
+    min-height: 50px; /* או כמה שתרצה */
+    height: 50px; /* או כמה שתרצה */
+    padding: 0 20px; /* מרווח פנימי */
+    background-color: var(--mui-primary-main); /* הצבע העיקרי */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* צל קל על ה-AppBar */
+
+  }

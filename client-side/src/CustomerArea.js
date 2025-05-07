@@ -5,6 +5,7 @@ import CustomerSideBar from "./CustomerSideBar";
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useParams ,useLocation} from 'react-router-dom';
+import SideBar from "./sideBar";
 
 
 const CustomerArea = () => {
@@ -35,8 +36,9 @@ const CustomerArea = () => {
     // }, []);
     return (
         <div className="backgroundd"> {/* Added a class to use for setting the background */}
-            <Header />
-            <CustomerSideBar />
+            {/* <Header /> */}
+            {/* <CustomerSideBar /> */}
+            <SideBar/>
             <div className="App2"> {/* Corrected the class assignment to className */}
                 <h6>Welcome to the personal area!</h6>
                 <p>

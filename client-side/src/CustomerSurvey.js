@@ -4,7 +4,7 @@ import axios from 'axios';
 import Header from './header'; // Ensure correct import path
 import CustomerSideBar from './CustomerSideBar'; // Ensure correct import path
 import './CustomerSurvey.css'; // CSS for styling
-
+import SideBar from './sideBar';
 const CustomerSurvey = () => {
     const [rating, setRating] = useState('5');
     const [improvementSuggestion, setImprovementSuggestion] = useState('');
@@ -70,8 +70,8 @@ const CustomerSurvey = () => {
 
     return (
         <div className="customerSurvey">
-            <Header />
-            <CustomerSideBar />
+            {/* <Header /> */}
+            <SideBar />
             <div className="container9">
                 <h90>User Survey</h90>
                 <form id="surveyForm" onSubmit={handleSubmit}>
@@ -112,7 +112,6 @@ const CustomerSurvey = () => {
                                    checked={recommendation === 'yes'}
                                    onChange={() => setRecommendation('yes')} /> Yes
                         </label>
-                        <br />
                         <label>
                             <input type="radio" name="recommendation" value="no"
                                    checked={recommendation === 'no'}

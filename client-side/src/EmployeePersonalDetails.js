@@ -4,7 +4,7 @@ import EmployeeSideBar from './EmployeeSideBar';
 import Header from "./header";
 import { useParams,useLocation } from 'react-router-dom';
 import axios from 'axios';
-
+import SideBar from './sideBar';
 const EmployeePersonalDetails = () => {
     console.log("EmployeePersonalDetails")
     const { id } = useParams();
@@ -25,7 +25,7 @@ const EmployeePersonalDetails = () => {
         employee_adress: "",
         employee_id: "",
         employee_team: "",
-        customerImage: 'default-customer-image.jpg',
+        employeeImage: "/photos/pepole.jpeg",
         isEditable: false
     });
 
@@ -45,7 +45,9 @@ const EmployeePersonalDetails = () => {
                 employee_adress: storedEmployee.employee_adress,
                 employee_id: storedEmployee.employee_id,
                 employee_team: storedEmployee.employee_team,
-                customerImage: 'default-customer-image.jpg',
+                // customerImage: 'default-customer-image.jpg',
+                employeeImage: "/photos/pepole.jpeg",
+
                 isEditable: false
             });
         }
@@ -97,8 +99,8 @@ const EmployeePersonalDetails = () => {
 
     return (
         <div className="EmployeePersonalDetails">
-            <Header/>
-            <EmployeeSideBar />
+            {/* <Header/> */}
+            <SideBar />
             <div className="container2">
                 <h1>Personal Information</h1> {/* Changed h43 to h1 for proper semantics */}
                 <div id="EmployeeDetails">

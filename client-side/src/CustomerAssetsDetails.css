@@ -3,39 +3,40 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    min-height: 100vh;
-    width: 100%;
-    position: relative;
-    margin-left: auto;
+    margin-top: 100px;
+    height: 100vb;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; מרכז את התוכן */
+
 }
-
-
 
 .table-container {
-    background-color: rgba(255, 255, 255, 0.5); /* Optional: Dark transparent overlay for better readability */
-    padding: 160px;
-
+    background-color: rgba(255, 255, 255, 0.1); /* Optional: Dark transparent overlay for better readability */
+    /* width: 100%; תוכל לשנות את רוחב הטבלה כפי שמתאים לך */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: auto; /* Centering the table within the container */
-    margin-top: 30px;
+h1 {
+    /* width: 100%; */
+    margin-bottom: 20px; /* להוסיף רווח מתחת לכותרת */
 }
+
+.table{
+    margin-top: 10px;
+    /* border-collapse: collapse; */
+    /* width: 100%;להבטיח שהטבלה תשתמש בכל רוחב האפשרי */
+    margin-left: 0px; 
+}
+
 th, td {
     text-align: center;
     padding: 15px;
     border: 1px solid gray;
-}
-h980 {
-    font-size: 30px;
-    color: darkblue;
-    font-family: Calibri, sans-serif;
-    font-weight: bold;
-    margin-left: 880px;
-    margin-bottom: 950px;
 }
 
 th {

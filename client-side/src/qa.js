@@ -3,6 +3,7 @@ import Header from "./header";
 import Footer from "./footer";
 import './qa.css';
 import EmployeeSideBar from "./EmployeeSideBar";
+import SideBar from './sideBar';
 
 const AccordionItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -43,8 +44,8 @@ const qa = () => {
 
     return (
         <div className="accordion56">
+            <SideBar/>
             <div className="background">
-                <Header/>
                 <div className="lines">
                     {faqData.map((faq, index) => (
                         <AccordionItem key={index} question={faq.question} answer={faq.answer} />

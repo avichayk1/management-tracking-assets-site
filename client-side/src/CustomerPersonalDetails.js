@@ -4,7 +4,7 @@ import CustomerSideBar from './CustomerSideBar';
 import Header from "./header";
 import { useParams ,useLocation} from 'react-router-dom';
 import axios from 'axios';
-
+import SideBar from './sideBar';
 const CustomerPersonalDetails = () => {
     const { id } = useParams();
     const location = useLocation(); // Access the location object
@@ -22,7 +22,7 @@ const CustomerPersonalDetails = () => {
         customer_mail: '',
         customer_adress: '',
         customer_id: '',
-        customerImage: 'default-customer-image.jpg',
+        customerImage: '/photos/pepole.jpeg',
         isEditable: false
     });
 
@@ -35,7 +35,7 @@ const CustomerPersonalDetails = () => {
                 customer_mail: storedCustomer.customer_mail,
                 customer_adress: storedCustomer.customer_adress,
                 customer_id: storedCustomer.customer_id,
-                customerImage: 'default-customer-image.jpg',
+                customerImage: '/photos/pepole.jpeg',
                 isEditable: false
             });
         }
@@ -89,8 +89,8 @@ const CustomerPersonalDetails = () => {
 
     return (
         <div className="CustomerPersonalDetails">
-            <Header />
-            <CustomerSideBar />
+            {/* <Header /> */}
+            <SideBar />
             <div className="container2">
                 <h1>Personal Information</h1>
                 <div id="customerDetails">

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Header from './header'; // Adjust the import path as needed
 import ManagerSideBar from './ManagerSideBar'; // Adjust the import path as needed
 import './ManagerSurveyDistribution.css'; // Import the CSS file
 import axios from 'axios';
+import SideBar from './sideBar';
 import { useParams ,useLocation} from 'react-router-dom';
 const ManagerSurveyDistribution = () => {
     const {id}=useParams();
@@ -49,10 +49,10 @@ const ManagerSurveyDistribution = () => {
 
     return (
         <div className="managerSurveyDistribution">
-            <Header />
-            <ManagerSideBar />
+            {/* <Header /> */}
+            <SideBar />
             <div className="container5">
-                <h4>Survey Settings:</h4>
+                <h1>Survey Settings:</h1>
                 <form id="surveyForm" onSubmit={handleSubmit}>
                     <label>Survey Frequency:</label>
                     <div className="radio-group">

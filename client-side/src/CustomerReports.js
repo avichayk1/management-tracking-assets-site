@@ -4,11 +4,12 @@ import Header from "./header";
 import CustomerSideBar from "./CustomerSideBar";
 import {Link} from "react-router-dom";
 import CustomerContact from "./CustomerContact";
+import SideBar from './sideBar';
 const CustomerReports = () => {
     return (
         <div className="background3"> {/* Added a class to use for setting the background */}
-            <Header/>
-            <CustomerSideBar/>
+            {/* <Header/> */}
+            <SideBar/>
             <div className="App"> {/* Corrected the class assignment to className */}
                 <h9>Dear client,</h9>
                 <p>No relevant report was found to display for you.<br />

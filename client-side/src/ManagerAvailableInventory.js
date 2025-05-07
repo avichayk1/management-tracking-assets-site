@@ -1,10 +1,9 @@
 import React , { useState,useEffect }from 'react';
-import Header from './header'; // Adjust the import path as needed
 import ManagerSideBar from './ManagerSideBar'; // Adjust the import path as needed
 import './ManagerAvailableInventory.css'; // Import the CSS file
 import OfficeDepot from './photos/OfficeDepot.png';
 import axios from 'axios';
-
+import SideBar from './sideBar';
 // Sample inventory items
 
 const ManagerAvailableInventory = () => {
@@ -94,8 +93,8 @@ const ManagerAvailableInventory = () => {
     
   return (
     <div className="managerInventory">
-      <Header />
-      <ManagerSideBar />
+      {/* <Header /> */}
+      <SideBar />
       <h2>Available Inventory Report:</h2>
       <table>
         <thead>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from "./header";
 import Footer from "./footer";
 import './Contact.css';
+import SideBar from './sideBar';
 
 const ContactPage = () => {
     const [formData, setFormData] = useState({
@@ -50,7 +51,7 @@ const ContactPage = () => {
 
     return (
         <div className="Contact-background">
-            <Header />
+            <SideBar />
             <div className="Melal">
                 <h77>How can you contact us?</h77>
                 <p>We will be happy to provide a service for you, in the way you choose. <br />

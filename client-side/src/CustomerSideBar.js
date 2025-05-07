@@ -4,8 +4,30 @@ import "./CustomerSideBar.css";
 import Bell from "./photos/bell.png";
 import { useParams,useLocation } from 'react-router-dom';
 import axios from 'axios';
+import LOGO from './photos/Logo.jpeg';
+import Header from './header';
+import { useTheme } from '@mui/material/styles';
+import {
+  IconButton,
+  Drawer,
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+  Toolbar,
+  AppBar,
+  Typography,
+  Button,
+  Divider
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const CustomerSideBar =  (e) => {
+    const [leftDrawerOpen, setLeftDrawerOpen] = useState(false); // State for the navigation drawer
+    const [rightDrawerOpen, setRightDrawerOpen] = useState(false); // State for the alerts drawer
+
+    const theme = useTheme(); // Access the theme object
+
     const navigate = useNavigate();
     const {id}=useParams();
     const location = useLocation(); // Access the location object
@@ -18,6 +40,22 @@ const CustomerSideBar =  (e) => {
     console.log("ncustomer is",customer_id)
     const [showAlerts, setShowAlerts] = useState(false);
     const [alerts,setAlerts]=useState([])
+
+        // Function to toggle the navigation drawer's open state
+    const toggleLeftDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+        }
+        setLeftDrawerOpen(open);
+    };
+
+    // Function to toggle the alerts drawer's open state
+    const toggleRightDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+        }
+        setRightDrawerOpen(open);
+    };
     useEffect(() => {
         console.log("I am in customerOPINION");
         // const id = 1; // replace this with actual id from useParams or other source
@@ -51,11 +89,202 @@ const CustomerSideBar =  (e) => {
     // [
     //     "You have a new message."
     // ];
-
+    // const HeaderNavigationLinks = (
+    //     <Box
+    //     sx={{
+    //     display: 'flex',         // Use flexbox for layout
+    //     alignItems: 'center',    // Center items vertically
+    //     justifyContent: 'space-between', // Distribute space between items
+    //     width: '100%',           // Full width of the container
+    //     padding: 1,              // Add padding if needed
+    //     }}
+    //     >
+    //         <Link
+    //         to="/"
+    //         className="link"
+    //         style={{
+    //             textDecoration: 'none',    // Remove underline
+    //             color: '#fff',             // White color to match Typography
+    //             fontSize: '2rem',          // Adjust font size
+    //             marginRight: '4px',       // Space between links
+    //         }}
+    //         >
+    //         Home
+    //         </Link>
+    //         <Link
+    //         to="/contact"
+    //         className="link"
+    //         style={{
+    //             textDecoration: 'none',    // Remove underline
+    //             color: '#fff',             // White color to match Typography
+    //             fontSize: '2rem',          // Adjust font size
+    //         }}
+    //         >
+    //         Contact
+    //         </Link>
+    //         <Link
+    //         to="/qa"
+    //         className="link"
+    //         style={{
+    //             textDecoration: 'none',    // Remove underline
+    //             color: '#fff',             // White color to match Typography
+    //             fontSize: '2rem',          // Adjust font size
+    //         }}
+    //         >
+    //         Q&A
+    //         </Link>
+    //         <Link
+    //         to="/Login"
+    //         className="link"
+    //         style={{
+    //             textDecoration: 'none',    // Remove underline
+    //             color: '#fff',             // White color to match Typography
+    //             fontSize: '2rem',          // Adjust font size
+    //         }}
+    //         >
+    //         Logout
+    //         </Link>
+    //   </Box>
+    //   );
+      // Drawer content displaying navigation links
+      const SideBarnavigationLinks = (
+        <Box
+          sx={{ width: 250 }}
+          role="presentation"
+          onClick={toggleLeftDrawer(false)}
+          onKeyDown={toggleLeftDrawer(false)}
+        >
+          <List>
+            <ListItem>
+              <Link to={`/CustomerArea/${id}?customer_id=${customer.customer_id}`}
+              className="link"
+              style={{
+                  textDecoration: 'none',    // Remove underline
+                  color: '#fff',             // White color to match Typography
+                  fontSize: '2rem',          // Adjust font size
+                  marginBottom: '2rem'
+                }}>Personal Area</Link>
+            </ListItem>
+            <Divider sx={{ borderColor: '#fff', borderBottomWidth: 1 }} /> {/* Divider with white color */}
+            <ListItem>
+              <Link to={`/CustomerPersonalDetails/${id}?customer_id=${customer.customer_id}`}
+              className="link"
+              style={{
+                  textDecoration: 'none',    // Remove underline
+                  color: '#fff',             // White color to match Typography
+                  fontSize: '2rem',          // Adjust font size
+                  marginBottom: '2rem'
+    
+                }}>Personal Details</Link>
+            </ListItem>
+            <Divider sx={{ borderColor: '#fff', borderBottomWidth: 1 }} /> {/* Divider with white color */}
+            <ListItem>
+              <Link to={`/CustomerAssetsDetails/${id}?customer_id=${customer.customer_id}`} 
+              style={{
+                textDecoration: 'none',    // Remove underline
+                color: '#fff',             // White color to match Typography
+                fontSize: '2rem',          // Adjust font size
+                marginBottom: '2rem'
+    
+              }}>Personal assets details</Link>
+            </ListItem>
+            <Divider sx={{ borderColor: '#fff', borderBottomWidth: 1 }} /> {/* Divider with white color */}
+            <ListItem>
+              <Link to={`/CustomerContact/${id}?customer_id=${customer.customer_id}`}
+              style={{
+                textDecoration: 'none',    // Remove underline
+                color: '#fff',             // White color to match Typography
+                fontSize: '2rem',          // Adjust font size
+                marginBottom: '2rem'
+    
+              }}>Contact customer service</Link>
+            </ListItem>
+            <Divider sx={{ borderColor: '#fff', borderBottomWidth: 1 }} /> {/* Divider with white color */}
+            <ListItem>
+              <Link to={`/CustomerReports/${id}?customer_id=${customer.customer_id}`}
+              style={{
+                textDecoration: 'none',    // Remove underline
+                color: '#fff',             // White color to match Typography
+                fontSize: '2rem',          // Adjust font size
+                marginBottom: '2rem'
+    
+              }}>
+              Reports</Link>
+            </ListItem>
+          </List>
+        </Box>
+      );
+    
+      // Drawer content displaying alerts
+      const alertsContent = (
+        <Box
+          sx={{ width: 250 }}
+          role="presentation"
+          onClick={toggleRightDrawer(false)}
+          onKeyDown={toggleRightDrawer(false)}
+        >
+          <List>
+            {alerts.map((alert, index) => (
+              <ListItem key={index}>
+                <ListItemText primary={alert} />
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      );
     return (
         <header>
-            <div className="CustomerSideBar">
-                <p>Menu</p>
+                        {/* AppBar with Toolbar */}
+            <AppBar position="static">
+                <Toolbar>
+                {/* IconButton with Menu Icon that opens the Navigation Drawer */}
+                <IconButton
+                    size="large"
+                    edge="start"
+                    color="inherit"
+                    aria-label="menu"
+                    // sx={{ mr: 2 }}
+                    onClick={toggleLeftDrawer(true)} // Opens the left drawer on click
+                >
+                    <MenuIcon />
+                </IconButton>
+
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1,width: 280,mr:11 }}>
+                    Employee Menu
+                </Typography>
+                  <Header/>
+                {/* IconButton with Bell Icon that opens the Alerts Drawer */}
+                <IconButton
+                    size="large"
+                    color="inherit"
+                    aria-label="alerts"
+                    onClick={toggleRightDrawer(true)} // Opens the right drawer on click
+                >
+                    <img src={Bell} alt="Bell" style={{ width: '72px', height: '72px' }} />
+                </IconButton>
+                <img className="Logo" src={LOGO} alt="Logo" />
+
+                </Toolbar>
+            </AppBar>
+
+            {/* Navigation Drawer (Left) */}
+            <Drawer anchor="left" open={leftDrawerOpen} onClose={toggleLeftDrawer(false)}        sx={{
+                '& .MuiDrawer-paper': {
+                    backgroundColor: theme.palette.primary.main, // Set background color
+                    position: 'fixed', // Fix the drawer in place
+                    top: '130px', // Adjust based on AppBar height
+                    height: 'calc(100% - 130px)', // Adjust height based on remaining space
+                    overflow: 'auto', // Ensure scrolling if content overflows
+                },
+                }}>
+                {SideBarnavigationLinks}
+            </Drawer>
+            
+            {/* Alerts Drawer (Right) */}
+            <Drawer anchor="right" open={rightDrawerOpen} onClose={toggleRightDrawer(false)}>
+                {alertsContent}
+            </Drawer>
+                {/* <p>Menu</p>
                 <img className="Bell" src={Bell} alt="Bell" onClick={() => setShowAlerts(!showAlerts)} />
                 {showAlerts && (
                     <div className="alerts">
@@ -68,13 +297,8 @@ const CustomerSideBar =  (e) => {
 
                         ))}
                     </div>
-                )}
-                <Link to={`/CustomerArea/${id}?customer_id=${customer.customer_id}`} className="link">Personal area</Link>
-                <Link to={`/CustomerPersonalDetails/${id}?customer_id=${customer.customer_id}`} className="link">Personal details</Link>
-                <Link to={`/CustomerAssetsDetails/${id}?customer_id=${customer.customer_id}`} className="link">Personal assets details</Link>
-                <Link to={`/CustomerContact/${id}?customer_id=${customer.customer_id}`} className="link">Contact customer service</Link>
-                <Link to={`/CustomerReports/${id}?customer_id=${customer.customer_id}`} className="link">Reports</Link>
-            </div>
+                )} */}
+
         </header>
     );
 };

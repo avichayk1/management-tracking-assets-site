@@ -29,13 +29,9 @@
     margin-bottom: 10px;
     border-radius: 12px;
 }
-
 .smallCalendar {
-    width: 70%; /* Narrower width for the calendar */
+    width: 70%;
     margin: 20px auto;
-    position: relative;
-    left: 46%; /* Move it to the right */
-    transform: translateX(-50%); /* Center it relative to its new position */
 }
 
 .react-calendar__tile {

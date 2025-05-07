@@ -1,13 +1,14 @@
 import React from 'react';
 import "./home.css";
 import "./App.css";
-import Header from "./header";
+import SideBar from './sideBar';
 import Footer from "./footer";
 
 const home = () => {
     return (
         <div className="background-image"> {/* Added a class to use for setting the background */}
-            <Header/>
+            {/* <Header/> */}
+            <SideBar/>
             <div className="home"> {/* Corrected the class assignment to className */}
                 <h77>Welcome to MOVE website</h77>
                 <p>"Move" - which helps you manage and monitor personal assets. <br />

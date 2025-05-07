@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from "./header";
 import EmployeeSideBar from './EmployeeSideBar';
 import './EmployeeContact.css';
-
+import SideBar from './sideBar';
 const AccordionItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -57,8 +57,8 @@ const EmployeeContact = () => {
     return (
         <div className="accordion2">
             <div className="background6">
-                <Header/>
-                <EmployeeSideBar />
+                {/* <Header/> */}
+                <SideBar />
                 <h1>Interested in contacting another department?<br />
                     Below is the corporate contact information for your use.</h1>
                     {faqData.map((faq, index) => (

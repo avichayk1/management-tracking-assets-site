@@ -4,7 +4,7 @@ import './CustomerAssetsDetails.css';
 import Header from "./header";
 import CustomerSideBar from "./CustomerSideBar";
 import { useParams,useLocation } from 'react-router-dom';
-
+import SideBar from './sideBar';
 const CustomerAssetsDetails = () => {
     const location = useLocation(); // Access the location object
     
@@ -75,11 +75,11 @@ const CustomerAssetsDetails = () => {
 
     return (
         <div className="CustomerAssetsDetails">
-            <Header />
-            <CustomerSideBar />
+            {/* <Header /> */}
+            <SideBar />
             <div className="table-container">
                 <h1>Details - Assets under management:</h1>
-                <table>
+                <table className='table'>
                     <thead>
                     <tr>
                         <th>Assets Address:</th>
@@ -89,7 +89,7 @@ const CustomerAssetsDetails = () => {
                     {properties.map((property, index) => (
                         <React.Fragment key={index}>
                             <tr onClick={() => toggleRow(index)}>
-                                <td>{property.address}</td>
+                                <td>{property.asset_adress}</td>
                             </tr>
                             {expandedRow === index && (
                                 <tr>

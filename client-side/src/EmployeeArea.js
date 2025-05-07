@@ -5,6 +5,7 @@ import EmployeeSideBar from "./EmployeeSideBar";
 import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import SideBar from "./sideBar";
 const EmployeeArea = () => {
     console.log("i am in EmployeeArea")
     const {id}=useParams();
@@ -27,8 +28,8 @@ const EmployeeArea = () => {
     }, []);
     return (
         <div className="EmployeeAreabackground"> {/* Added a class to use for setting the background */}
-            <Header/>
-            <EmployeeSideBar/>
+            {/* <Header/> */}
+            <SideBar/>
             <div className="App6"> {/* Corrected the class assignment to className */}
                 <h1>Welcome to your personal area!</h1>
                 <p9>We are happy to see you again.<br />

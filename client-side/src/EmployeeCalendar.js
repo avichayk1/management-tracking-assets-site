@@ -6,6 +6,7 @@ import EmployeeSideBar from './EmployeeSideBar'; // Assuming you have this compo
 import Header from './header'; // Assuming you have this component
 import { useParams ,useLocation} from 'react-router-dom';
 import axios from 'axios';
+import SideBar from './sideBar';
 const EmployeeCalendar = () => {
     const {id}=useParams();
     const location = useLocation(); // Access the location object
@@ -79,8 +80,8 @@ const EmployeeCalendar = () => {
     }, []);
     return (
         <div className="employee-calendar">
-            <Header />
-            <EmployeeSideBar />
+            {/* <Header /> */}
+            <SideBar />
             <div className="calendar-container">
                 <Calendar
                     onChange={onDateChange}

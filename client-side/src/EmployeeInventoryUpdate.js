@@ -4,6 +4,7 @@ import Header from './header';
 import EmployeeSideBar from './EmployeeSideBar';
 import { useParams ,useLocation} from 'react-router-dom';
 import axios from 'axios';
+import SideBar from './sideBar';
 const EmployeeInventoryUpdate = () => {
     const today = new Date();
     console.log(today)
@@ -82,10 +83,10 @@ const EmployeeInventoryUpdate = () => {
 
     return (
         <div className="EmployeeInventoryUpdate2">
-            <Header />
-            <EmployeeSideBar />
+            {/* <Header /> */}
+            <SideBar />
             <div className="InventoryForm2">
-                <h90>Inventory Update Request Form</h90>
+                <h1>Inventory Update Request Form</h1>
                 <form onSubmit={handleSubmit} className="form2">
                     <table className="styled-table2">
                         <thead>

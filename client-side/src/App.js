@@ -21,36 +21,40 @@ import ManagerSurveyDistribution from "./ManagerSurveyDistribution";
 import CustomerSurvey from "./CustomerSurvey";
 import AddingNewCustomer from "./AddingNewCustomer";
 import Stam from "./stam";
+import { UserProvider } from './UserContext'; // <<< תוסיף את זה
 
 const App = () => {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                {/* <Route path="/home" element={<Home />} /> */}
-                <Route path="/Contact" element={<Contact />} />
-                <Route path="/qa" element={<Qa />} />
-                <Route path="/Login" element={<Login />} />
-                <Route path="/CustomerArea/:id" element={<CustomerArea />} />
-                <Route path="/CustomerPersonalDetails/:id" element={<CustomerPersonalDetails />} />
-                <Route path="/CustomerAssetsDetails/:id" element={<CustomerAssetsDetails />} />
-                <Route path="/CustomerContact/:id" element={<CustomerContact />} />
-                <Route path="/CustomerReports/:id" element={<CustomerReports />} />
-                <Route path="/CustomerSurvey/:id" element={<CustomerSurvey/>} />
-                <Route path="/EmployeeArea/:id" element={<EmployeeArea />} />
-                <Route path="/EmployeePersonalDetails/:id" element={<EmployeePersonalDetails />} />
-                <Route path="/EmployeeInventoryUpdate/:id" element={<EmployeeInventoryUpdate />} />
-                <Route path="/EmployeeCalendar/:id" element={<EmployeeCalendar />} />
-                <Route path="/EmployeeContact/:id" element={<EmployeeContact />} />
-                <Route path="/ManagerArea/:id" element={<ManagerArea />} />
-                <Route path="/ManagerCalendar/:id" element={<ManagerCalendar />} />
-                <Route path="/ManagerAvailableInventory/:id" element={<ManagerAvailableInventory />} />
-                <Route path="/ManagerSurveyDistribution/:id" element={<ManagerSurveyDistribution />} />
-                <Route path="/CustomerSurvey/:id" element={<CustomerSurvey />} />
-                <Route path="/AddingNewCustomer/:id" element={<AddingNewCustomer />} />
-                <Route path="/stam/:id" element={<Stam />} />
-            </Routes>
-        </Router>
+        <UserProvider>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    {/* <Route path="/home" element={<Home />} /> */}
+                    <Route path="/Contact" element={<Contact />} />
+                    <Route path="/qa" element={<Qa />} />
+                    <Route path="/Login" element={<Login />} />
+                    <Route path="/CustomerArea/:id" element={<CustomerArea />} />
+                    <Route path="/CustomerPersonalDetails/:id" element={<CustomerPersonalDetails />} />
+                    <Route path="/CustomerAssetsDetails/:id" element={<CustomerAssetsDetails />} />
+                    <Route path="/CustomerContact/:id" element={<CustomerContact />} />
+                    <Route path="/CustomerReports/:id" element={<CustomerReports />} />
+                    <Route path="/CustomerSurvey/:id" element={<CustomerSurvey/>} />
+                    <Route path="/EmployeeArea/:id" element={<EmployeeArea />} />
+                    <Route path="/EmployeePersonalDetails/:id" element={<EmployeePersonalDetails />} />
+                    <Route path="/EmployeeInventoryUpdate/:id" element={<EmployeeInventoryUpdate />} />
+                    <Route path="/EmployeeCalendar/:id" element={<EmployeeCalendar />} />
+                    <Route path="/EmployeeContact/:id" element={<EmployeeContact />} />
+                    <Route path="/ManagerArea/:id" element={<ManagerArea />} />
+                    <Route path="/ManagerCalendar/:id" element={<ManagerCalendar />} />
+                    <Route path="/ManagerAvailableInventory/:id" element={<ManagerAvailableInventory />} />
+                    <Route path="/ManagerSurveyDistribution/:id" element={<ManagerSurveyDistribution />} />
+                    <Route path="/CustomerSurvey/:id" element={<CustomerSurvey />} />
+                    <Route path="/AddingNewCustomer/:id" element={<AddingNewCustomer />} />
+                    <Route path="/stam/:id" element={<Stam />} />
+                </Routes>
+            </Router>
+        </UserProvider>
+
     );
 };
 

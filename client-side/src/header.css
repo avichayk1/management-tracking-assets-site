@@ -1,34 +1,50 @@
-.Header ul .link {
-    text-decoration: none;
-    color: darkblue; /* Set the color of your links */
-    font-size: 24px; /* Increased font size */
-    font-weight: bold; /* Make the text bold */
-    flex-grow: 1;
-    text-align: center;
-    padding: 10px; /* Adds padding for better touch interaction and visual appeal */
-    margin: 0 10px; /* Optional: Adds horizontal spacing between links */
-    font-family: Calibri, sans-serif;
+.Header {
+    height: 80px; /* גובה ההדר */
+    background-color: #daedf5;
+    /* position: fixed; /* Fix the header at the top */
+    /* top: 0; Align to the top of the viewport */ 
+    /* position: relative;
+    z-index: 10; */
+    width: 100%;
+    display: flex;
+    justify-content: center; /* למרכז את התוכן בתוך ההדר */
+    align-items: center;
 }
-
-.Logo {
-    width: 120px;
-    height: 100px;
-    order: 2; /* Keeps the logo on the right */
-}
-
-
 
 .Header ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-    background-color: #daedf5;
-    padding: 0;
-    margin: 0;
-    height: 100px;
+    list-style: none; /* מבטל נקודות */
+    display: flex; /* מסדר את ה-li אחד ליד השני */
+    align-items: center; /* מיישר למרכז בגובה */
+    justify-content: space-evenly; /* Equal space between and around items */
+    height: 100%; /* תופס 100% מהגובה של .Header */
+    width:100%
 }
-.Header .link:hover {
-    background-color: #f1c9c9; /* Light grey background on hover */
-    border-radius: 50px;
+
+.Header ul li {
+    display: flex; /* כל li הוא גם flex */
+    align-items: center; /* שהלינק באמצע */
+    justify-content: center;
+    height: 100%; /* שה-li יתפוס את כל גובה ההדר */
+}
+
+.Header ul .link {
+    text-decoration: none;
+    color: darkblue;
+    background-color: #daedf5;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    font-family: Calibri, sans-serif;
+    padding: 10px 20px; /* padding פנימי */
+}
+.Header ul .link:hover{
+    color: #f3f1f0; /* צבע טקסט אחר במעבר עכבר */
+    background-color: #228bb5; /* רקע טיפה יותר כהה */
+    border-radius: 10px;
+    text-decoration: underline; /* אפשר גם קו תחתון אם רוצים */
+    transition: 0.3s; /* מעבר חלק ואנימציה */
+} 
+.Logo {
+    width: 60px;
+    height: 50px;
 }
