@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './CustomerAssetsDetails.css';
+import './CustomerPropertyDetails.css';
 import Header from "./header";
 import CustomerSideBar from "./CustomerSideBar";
 import { useParams,useLocation } from 'react-router-dom';
 import SideBar from './sideBar';
-const CustomerAssetsDetails = () => {
+const CustomerPropertyDetails = () => {
     const location = useLocation(); // Access the location object
     
     // Parse the query parameters
@@ -44,7 +44,7 @@ const CustomerAssetsDetails = () => {
     const [{id},setId]=useState(useParams())
     // setId(customerId);
     useEffect(() => {
-        console.log("I am in CustomerAssetDetails");
+        console.log("I am in CustomerPropertyDetails");
         // const id = 1; // replace this with actual id from useParams or other source
         console.log("ID from params: " + id);
         console.log(`http://localhost:3001/customer-assets/${customer_id}`);
@@ -78,11 +78,11 @@ const CustomerAssetsDetails = () => {
             {/* <Header /> */}
             <SideBar />
             <div className="table-container">
-                <h1>Details - Assets under management:</h1>
+                <h1>Details - Properties under management:</h1>
                 <table className='table'>
                     <thead>
                     <tr>
-                        <th>Assets Address:</th>
+                        <th>Property Address:</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -126,4 +126,4 @@ const CustomerAssetsDetails = () => {
     );
 };
 
-export default CustomerAssetsDetails;
+export default CustomerPropertyDetails;

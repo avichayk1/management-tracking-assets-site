@@ -120,15 +120,15 @@ const AddingNewCustomer = () => {
 
                     <button className={`accordion ${isOpen.addProperties ? 'active' : ''}`}
                             onClick={() => toggleAccordion('addProperties')}>
-                        Asset Details
+                        Property Details
                     </button>
                     <div className="panel" style={{ display: isOpen.addProperties ? 'block' : 'none' }}>
-                        <input type="text" placeholder="Asset Address" 
+                        <input type="text" placeholder="Property Address" 
                             id="address"
                             value={customer_asset.asset_adress}
                             onChange={(e) => setCustomer_asset({ ...customer_asset, asset_adress: e.target.value })}
                         />
-                        <input type="text" placeholder="Asset Number" />
+                        <input type="text" placeholder="Property Number" />
                         <input type="text" placeholder="District" 
                         id="district"
                         value={customer_asset.asset_district}

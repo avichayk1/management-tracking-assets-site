@@ -5,7 +5,7 @@ import Bell from "./photos/bell.png";
 import { useParams,useLocation } from 'react-router-dom';
 import axios from 'axios';
 import LOGO from './photos/Logo.jpeg';
-import Header from './header';
+
 import { useTheme } from '@mui/material/styles';
 import {
   IconButton,
@@ -89,63 +89,63 @@ const CustomerSideBar =  (e) => {
     // [
     //     "You have a new message."
     // ];
-    // const HeaderNavigationLinks = (
-    //     <Box
-    //     sx={{
-    //     display: 'flex',         // Use flexbox for layout
-    //     alignItems: 'center',    // Center items vertically
-    //     justifyContent: 'space-between', // Distribute space between items
-    //     width: '100%',           // Full width of the container
-    //     padding: 1,              // Add padding if needed
-    //     }}
-    //     >
-    //         <Link
-    //         to="/"
-    //         className="link"
-    //         style={{
-    //             textDecoration: 'none',    // Remove underline
-    //             color: '#fff',             // White color to match Typography
-    //             fontSize: '2rem',          // Adjust font size
-    //             marginRight: '4px',       // Space between links
-    //         }}
-    //         >
-    //         Home
-    //         </Link>
-    //         <Link
-    //         to="/contact"
-    //         className="link"
-    //         style={{
-    //             textDecoration: 'none',    // Remove underline
-    //             color: '#fff',             // White color to match Typography
-    //             fontSize: '2rem',          // Adjust font size
-    //         }}
-    //         >
-    //         Contact
-    //         </Link>
-    //         <Link
-    //         to="/qa"
-    //         className="link"
-    //         style={{
-    //             textDecoration: 'none',    // Remove underline
-    //             color: '#fff',             // White color to match Typography
-    //             fontSize: '2rem',          // Adjust font size
-    //         }}
-    //         >
-    //         Q&A
-    //         </Link>
-    //         <Link
-    //         to="/Login"
-    //         className="link"
-    //         style={{
-    //             textDecoration: 'none',    // Remove underline
-    //             color: '#fff',             // White color to match Typography
-    //             fontSize: '2rem',          // Adjust font size
-    //         }}
-    //         >
-    //         Logout
-    //         </Link>
-    //   </Box>
-    //   );
+    const HeaderNavigationLinks = (
+        <Box
+        sx={{
+        display: 'flex',         // Use flexbox for layout
+        alignItems: 'center',    // Center items vertically
+        justifyContent: 'space-between', // Distribute space between items
+        width: '100%',           // Full width of the container
+        padding: 1,              // Add padding if needed
+        }}
+        >
+            <Link
+            to="/"
+            className="link"
+            style={{
+                textDecoration: 'none',    // Remove underline
+                color: '#fff',             // White color to match Typography
+                fontSize: '2rem',          // Adjust font size
+                marginRight: '4px',       // Space between links
+            }}
+            >
+            Home
+            </Link>
+            <Link
+            to="/contact"
+            className="link"
+            style={{
+                textDecoration: 'none',    // Remove underline
+                color: '#fff',             // White color to match Typography
+                fontSize: '2rem',          // Adjust font size
+            }}
+            >
+            Contact
+            </Link>
+            <Link
+            to="/qa"
+            className="link"
+            style={{
+                textDecoration: 'none',    // Remove underline
+                color: '#fff',             // White color to match Typography
+                fontSize: '2rem',          // Adjust font size
+            }}
+            >
+            Q&A
+            </Link>
+            <Link
+            to="/Login"
+            className="link"
+            style={{
+                textDecoration: 'none',    // Remove underline
+                color: '#fff',             // White color to match Typography
+                fontSize: '2rem',          // Adjust font size
+            }}
+            >
+            Logout
+            </Link>
+      </Box>
+      );
       // Drawer content displaying navigation links
       const SideBarnavigationLinks = (
         <Box
@@ -235,6 +235,7 @@ const CustomerSideBar =  (e) => {
     return (
         <header>
                         {/* AppBar with Toolbar */}
+            
             <AppBar position="static">
                 <Toolbar>
                 {/* IconButton with Menu Icon that opens the Navigation Drawer */}
@@ -252,7 +253,7 @@ const CustomerSideBar =  (e) => {
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1,width: 280,mr:11 }}>
                     Employee Menu
                 </Typography>
-                  <Header/>
+                {HeaderNavigationLinks}
                 {/* IconButton with Bell Icon that opens the Alerts Drawer */}
                 <IconButton
                     size="large"

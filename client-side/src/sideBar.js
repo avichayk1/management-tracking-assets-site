@@ -64,7 +64,7 @@ const SideBar =  (e) => {
         customer: [
           { to: `/CustomerArea/${id}?customer_id=${userId}`, label: 'Personal Area' },
           { to: `/CustomerPersonalDetails/${id}?customer_id=${userId}`,label:'Personal Details'},
-          { to: `/CustomerAssetsDetails/${id}?customer_id=${userId}`, label: 'Assets' },
+          { to: `/CustomerPropertiesDetails/${id}?customer_id=${userId}`, label: 'Properties' },
           { to: `/CustomerContact/${id}?customer_id=${userId}`,label:'Contact customer service'},
           { to:`/CustomerReports/${id}?customer_id=${userId}`,label:'Reports'},
           { to: `/CustomerSurvey/${id}?customer_id=${userId}`, label: 'Surveys' },

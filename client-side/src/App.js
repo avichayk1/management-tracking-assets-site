@@ -5,7 +5,7 @@ import Qa from './qa';
 import Login from './Login';
 import CustomerArea from "./CustomerArea";
 import CustomerContact from "./CustomerContact";
-import CustomerAssetsDetails from "./CustomerAssetsDetails";
+import CustomerPropertyDetails from "./CustomerPropertyDetails";
 import Contact from "./Contact";
 import ManagerArea from "./ManagerArea";
 import EmployeeArea from "./EmployeeArea";
@@ -35,7 +35,7 @@ const App = () => {
                     <Route path="/Login" element={<Login />} />
                     <Route path="/CustomerArea/:id" element={<CustomerArea />} />
                     <Route path="/CustomerPersonalDetails/:id" element={<CustomerPersonalDetails />} />
-                    <Route path="/CustomerAssetsDetails/:id" element={<CustomerAssetsDetails />} />
+                    <Route path="/CustomerPropertiesDetails/:id" element={<CustomerPropertyDetails />} />
                     <Route path="/CustomerContact/:id" element={<CustomerContact />} />
                     <Route path="/CustomerReports/:id" element={<CustomerReports />} />
                     <Route path="/CustomerSurvey/:id" element={<CustomerSurvey/>} />

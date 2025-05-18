@@ -35,7 +35,7 @@ const CustomerPersonalDetails = () => {
                 customer_mail: storedCustomer.customer_mail,
                 customer_adress: storedCustomer.customer_adress,
                 customer_id: storedCustomer.customer_id,
-                customerImage: '/photos/pepole.jpeg',
+                customerImage: 'photos/pepole.jpeg',
                 isEditable: false
             });
         }
